@@ -1,0 +1,23 @@
+{
+    "name": "ahmetbarut/mvc",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ahmet Barut",
+            "email": "ahmetbarut588@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\":"./app",
+            "Core\\" : "./core"
+        },
+        "files": [
+            "core/helper.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "vlucas/phpdotenv": "5.3.x-dev"
+    }
+}
