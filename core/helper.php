@@ -1,5 +1,7 @@
 <?php
 
+use Core\App;
+
 /**
  * public dizinin döndürür.
  * @param string $asset
@@ -28,4 +30,15 @@ function view(string $viewName, $data = [])
 {
     extract($data);
     require_once rootPath('view/') . $viewName . ".php";
+}
+
+/**
+ * çoklu dil kullanımı
+ * @param string $key
+ * @return string $value
+ */
+function __(string $key)
+{
+    $lang = include rootPath('view/lang/' . App::getLocale() . '.php');
+    return $lang[$key];
 }

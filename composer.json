@@ -18,6 +18,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "vlucas/phpdotenv": "5.3.x-dev"
+        "vlucas/phpdotenv": "5.3.x-dev",
+        "symfony/http-foundation": "5.x-dev"
     }
 }
