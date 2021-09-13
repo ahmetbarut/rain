@@ -9,34 +9,64 @@ use ReflectionType;
 
 class Injection
 {
+    /**
+     * Contains the parameters to be injected.
+     *
+     * @var array
+     */
     private $parameters = [];
 
-    private $requesParameters = [];
 
+    /**
+     * Contains parameters ready to be injected.
+     *
+     * @var array
+     */
     public $injection = [];
 
-    public function __construct(ReflectionFunctionAbstract $reflectionFunctionAbstract, $requesParameters = [])
+    /**
+     * Injection class constructor
+     *
+     * @param ReflectionFunctionAbstract $reflectionFunctionAbstract
+     */
+    public function __construct(ReflectionFunctionAbstract $reflectionFunctionAbstract)
     {
         $this->setParameters($reflectionFunctionAbstract);
-        $this->requesParameters = $requesParameters;
         $this->callClass();
     }
 
+    /**
+     * It stores the parameters to be injected.
+     *
+     * @param ReflectionFunctionAbstract $reflectionFunctionAbstract
+     * @return void
+     */
     private function setParameters(ReflectionFunctionAbstract $reflectionFunctionAbstract)
     {
         foreach ($reflectionFunctionAbstract->getParameters() as $parameters) {
-            if ($parameters->getType()->isBuiltin() === false) {
+            if (($parameters->hasType()) && $parameters->getType()->isBuiltin() === false) {
+            
                 $this->parameters[$parameters->getName()] = $parameters->getType()->getName();
             }
         }
         unset($customClass);
     }
 
+    /**
+     * Returns the parameters to be injected.
+     *
+     * @return void
+     */
     public function getParameters()
     {
         return $this->parameters;
     }
 
+    /**
+     * Generates and returns the object.
+     *
+     * @return void
+     */
     private function callClass()
     {
         foreach ($this->parameters as $key => $parameter) {

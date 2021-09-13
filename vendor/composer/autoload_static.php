@@ -10,6 +10,7 @@ class ComposerStaticInitf1606d12b6239ba56278bc3402aefda8
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '656970800e23144bfd9bfd1406cb783c' => __DIR__ . '/..' . '/ahmetbarut/php-router/src/Helper/helpers.php',
+        'c4337e685fbc52b8c24b7d03cac0b82c' => __DIR__ . '/../..' . '/core/Helper/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,7 +25,7 @@ class ComposerStaticInitf1606d12b6239ba56278bc3402aefda8
         ),
         'C' => 
         array (
-            'Config\\' => 7,
+            'Core\\' => 5,
         ),
         'A' => 
         array (
@@ -45,9 +46,9 @@ class ComposerStaticInitf1606d12b6239ba56278bc3402aefda8
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Config\\' => 
+        'Core\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/config',
+            0 => __DIR__ . '/../..' . '/core',
         ),
         'App\\' => 
         array (

@@ -95,7 +95,7 @@ class Request
      */
     public static function uri()
     {
-        $uri = $_SERVER["REDIRECT_URL"] ?? $_SERVER["REQUEST_URI"];
+        $uri = $_SERVER["REDIRECT_URL"] ?? $_SERVER["PATH_INFO"] ?? "/";
         return rtrim($uri, "/") === "" ? "/" : rtrim($uri, "/");
     }
 

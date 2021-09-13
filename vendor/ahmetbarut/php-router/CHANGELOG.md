@@ -7,7 +7,7 @@
 - Added dependency injection support. It can only be used for `__construct` without requiring mandatory parameters. It continues to be developed.
   - [Injection.php](src/Reflection/Injection.php)
 - Deleted Errors
-- 
+- Added HTTP POST support
 # 08.10
 - The parameters defined in the router must be the same as both the name and the sequence in the relevant function or method. example: `$router->get('/users/:username/:postId/:comments', "UserController@index");` and `public function index($username, $postId, $comments)`
   - [Related section](src/Reflection/Method.php#L62)

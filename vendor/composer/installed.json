@@ -2,25 +2,24 @@
     "packages": [
         {
             "name": "ahmetbarut/php-router",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
+            "version": "v1.0.1",
+            "version_normalized": "1.0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-router.git",
-                "reference": "25169502ef2642a2040200bc44a5783c41b500ce"
+                "reference": "f255c50842e18af89f8df15bf03ee8001a278eea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/25169502ef2642a2040200bc44a5783c41b500ce",
-                "reference": "25169502ef2642a2040200bc44a5783c41b500ce",
+                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/f255c50842e18af89f8df15bf03ee8001a278eea",
+                "reference": "f255c50842e18af89f8df15bf03ee8001a278eea",
                 "shasum": ""
             },
             "require-dev": {
                 "symfony/http-foundation": "6.0.x-dev",
                 "symfony/var-dumper": "*"
             },
-            "time": "2021-09-11T11:45:46+00:00",
-            "default-branch": true,
+            "time": "2021-09-13T12:29:54+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -44,7 +43,7 @@
             "description": "Php simple use router",
             "support": {
                 "issues": "https://github.com/ahmetbarut/php-router/issues",
-                "source": "https://github.com/ahmetbarut/php-router/tree/master"
+                "source": "https://github.com/ahmetbarut/php-router/tree/v1.0.1"
             },
             "install-path": "../ahmetbarut/php-router"
         },

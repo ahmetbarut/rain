@@ -5,20 +5,18 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '7a2005833119089adbc9d8e202f6777471678e62',
+        'reference' => '641e72408c29aec1c960b35a1d4b20656d3bfd53',
         'name' => 'sigortaturk/mvc',
         'dev' => true,
     ),
     'versions' => array(
         'ahmetbarut/php-router' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => 'v1.0.1',
+            'version' => '1.0.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../ahmetbarut/php-router',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
-            'reference' => '25169502ef2642a2040200bc44a5783c41b500ce',
+            'aliases' => array(),
+            'reference' => 'f255c50842e18af89f8df15bf03ee8001a278eea',
             'dev_requirement' => false,
         ),
         'sigortaturk/mvc' => array(
@@ -27,7 +25,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '7a2005833119089adbc9d8e202f6777471678e62',
+            'reference' => '641e72408c29aec1c960b35a1d4b20656d3bfd53',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

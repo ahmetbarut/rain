@@ -16,3 +16,10 @@ if (!function_exists('load_page')) {
         (new Render)->getPage($view, $properties);
     }
 }
+
+if(!function_exists('asset'))
+{
+    function asset($asset) {
+        return  "//". $_SERVER["HTTP_HOST"] . "/" . $asset;
+    }
+}

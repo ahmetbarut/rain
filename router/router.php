@@ -1,3 +1,3 @@
 <?php 
 
-$router->get('/de/:slug', "HelloController@index");
+$router->get('/', "HelloController@index");

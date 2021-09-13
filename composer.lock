@@ -4,27 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9b6b78c597c74cceccb65a0bc858468",
+    "content-hash": "c0126ed93d7bbcc8a07169dd4f25ad5b",
     "packages": [
         {
             "name": "ahmetbarut/php-router",
-            "version": "dev-master",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-router.git",
-                "reference": "8d5f26e65b5b3daacd7bd80f7841ec3b4420ad5e"
+                "reference": "f255c50842e18af89f8df15bf03ee8001a278eea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/8d5f26e65b5b3daacd7bd80f7841ec3b4420ad5e",
-                "reference": "8d5f26e65b5b3daacd7bd80f7841ec3b4420ad5e",
+                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/f255c50842e18af89f8df15bf03ee8001a278eea",
+                "reference": "f255c50842e18af89f8df15bf03ee8001a278eea",
                 "shasum": ""
             },
             "require-dev": {
                 "symfony/http-foundation": "6.0.x-dev",
                 "symfony/var-dumper": "*"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -47,9 +46,9 @@
             "description": "Php simple use router",
             "support": {
                 "issues": "https://github.com/ahmetbarut/php-router/issues",
-                "source": "https://github.com/ahmetbarut/php-router/tree/v1.0"
+                "source": "https://github.com/ahmetbarut/php-router/tree/v1.0.1"
             },
-            "time": "2021-09-13T08:14:44+00:00"
+            "time": "2021-09-13T12:29:54+00:00"
         }
     ],
     "packages-dev": [

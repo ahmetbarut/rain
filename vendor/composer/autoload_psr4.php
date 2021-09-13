@@ -9,6 +9,6 @@ return array(
     'ahmetbarut\\PhpRouter\\' => array($vendorDir . '/ahmetbarut/php-router/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
-    'Config\\' => array($baseDir . '/config'),
+    'Core\\' => array($baseDir . '/core'),
     'App\\' => array($baseDir . '/src'),
 );

@@ -1,0 +1,115 @@
+.newcard {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    color: white;
+    /* background: var(--red);*/
+    position: relative;
+    margin-bottom: 1em;
+    transition: all .5s;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.price {
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: var(--red);
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 120px;
+    margin: 0px auto;
+}
+.pricingdiv {
+    display: flex;
+}
+
+.pricingdiv ul.theplan {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color: white;
+    background: var(--red);
+    position: relative;
+    width: 250px;
+    margin-right: 10px;
+    margin-bottom: 1em;
+    transition: all .5s;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.pricingdiv ul.theplan:hover {
+    transform: scale(1.02);
+    transition: all .5s;
+    z-index: 100;
+    box-shadow: 0 0 10px gray;
+}
+
+.pricingdiv ul.theplan li {
+    margin: 10px 20px;
+    position: relative;
+}
+
+.pricingdiv ul.theplan li.title {
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+    margin-top: 15px;
+    border-bottom: 1px solid white;
+}
+
+.pricingdiv ul.theplan:nth-of-type(2) {
+    background: #e53499;
+}
+
+.pricingdiv ul.theplan:nth-of-type(3) {
+    background: #2a2cc8;
+}
+
+.pricingdiv ul.theplan:last-of-type {
+    margin-right: 0;
+}
+
+.pricingdiv ul.theplan li:last-of-type {
+    text-align: center;
+    margin-top: auto;
+}
+
+.pricingdiv a.pricebutton {
+    background: white;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px auto;
+    border-radius: 5px;
+    color: navy;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 500px) {
+    .pricingdiv ul.theplan {
+        border-radius: 0;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .pricingdiv ul.theplan:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .pricingdiv a.pricebutton {
+        display: block;
+    }
+}
+

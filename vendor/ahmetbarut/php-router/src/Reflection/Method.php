@@ -12,8 +12,7 @@ use ReflectionMethod;
 class Method
 {
     /**
-     * Yüklenecek olan denetleyicilerin alan adı. Kaynağı 
-     * \ahmetbarut\Router\Router $namespace dayanmakatadır
+     * The domain name of the controllers to be loaded. Its source is \ahmetbarut\Router\Router $namespace.
      *
      * @var string
      * @source \ahmetbarut\Router\Router $namespace
@@ -21,30 +20,30 @@ class Method
     private $namespace;
 
     /**
-     * Yükleneck olan denetleyici adı
+     * Name of the controller to be loaded.
      *
      * @var string
      */
     private $controller;
 
     /**
-     * Yüklenmesi istenen yöntemin adını içerir
+     * Contains the name of the method requested to be loaded.
      *
      * @var string
      */
     private $method;
 
     /**
-     * Yüklenmesi istenen yöntemin varsa parametreleri
+     * It contains the parameters of the method to be loaded, if any.
      *
      * @var array
      */
     private $arguments;
 
     /**
-     * \ahmetbarut\Reflection\Method yükleyicisidir.
-     * Sınıf objesi oluşturulunca denetleyicilerin alan adı,
-     * ilgili denetleyici ve yöntemi ("controller@method") ve varsa parametreleri gönderir.
+     * \ahmetbarut\Reflection\Method is the installer.
+     * The field name of the controllers when the class object is created,
+     * sends the corresponding controller and method ("controller@method") and parameters, if any.
      *
      * @param string     $namespace
      * @param string     $action
@@ -58,13 +57,14 @@ class Method
     }
 
     /**
-     * Denetleyiciyi yükler ve yöntemi çağırır.
+     * Loads the controller and calls the method.
      *
      * @param array|null $parameters
      * @return mixed
      */
     public function getMethod($parameters)
     {
+        // Burda \ReflectionMethod çağrılıyor, ilgili sınıf ve yöntem atanıyor.
         $reflectionMethod = new ReflectionMethod($this->controller, $this->method);
 
         $this->setParameters($reflectionMethod->getParameters());
@@ -83,7 +83,7 @@ class Method
     }
 
     /**
-     * Sözdizimi "controllerName@method" şeklinde olanı çözümler
+     * Resolves syntax "controllerName@method".
      *
      * @param string $controller
      * @return static
@@ -97,7 +97,7 @@ class Method
     }
 
     /**
-     * Yüklenecek olan denetleyicinin alan adını ekler.
+     * Adds the domain name of the controller to be loaded.
      *
      * @param string $namespace
      * @return static
@@ -109,7 +109,7 @@ class Method
     }
 
     /**
-     * Gelen parametrelerin eklenmesini sağlar
+     * Allows adding incoming parameters.
      *
      * @param array $parameters
      * @return void
