@@ -3,7 +3,7 @@
     "description": "Sigorta türk",
     "type": "project",
     "require": {
-        "ahmetbarut/php-router": "dev-master"
+        "ahmetbarut/php-router": ">=v1.0"
     },
     "require-dev": {
         "symfony/var-dumper": "6.0.x-dev"
@@ -11,8 +11,12 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "Config\\": "config/"
-        }
+            "Config\\": "config/",
+            "Core\\": "core/"
+        },
+        "files": [
+            "core/Helper/helpers.php"
+        ]
     },
     "minimum-stability": "dev"
 }

@@ -1,5 +1,3 @@
 <?php 
 
-$router->get('/', function (){
-    echo 'Deneme';
-});
+$router->get('/de/:slug', "HelloController@index");

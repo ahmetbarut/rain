@@ -6,8 +6,6 @@ class App
 {
     public function __construct()
     {
-        include __DIR__ . "/view.php";
-
         $this->loadRouter();
     }
 
