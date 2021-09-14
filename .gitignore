@@ -1,6 +1,6 @@
 .idea
 .vscode
-/vendor
+vendor
 template/*
 src/Controller/*
 translation/en/*
