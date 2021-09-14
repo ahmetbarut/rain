@@ -43,16 +43,16 @@
                     <span class="section-separator mb-3"></span>
                     <h3><?= __("all.offer_description") ?></h3>
                 </div>
-                <?php foreach($products as $product){?>
-                <?php if($product["is_act"]) {?>
-                <div class="col" data-aos="zoom-in">
-                    <a data-toggle="modal" href="#<?= $product["slug"] ?>" data-target="#<?= $product["frm_modal_target"] ?>" data-prop="<?= $product["slug"] ?>" class="mdlopen offerbutton hvr-grow" title="<?= $product["title"] ?>">
-                        <i class="material-icons"><?= $product["img_maticon"] ?></i>
-                    </a>
-                    <h3 class="titleh3"><?= $product["title"] ?></h3>
-                </div>
+                <?php foreach ($products as $product) { ?>
+                    <?php if ($product["is_act"]) { ?>
+                        <div class="col" data-aos="zoom-in">
+                            <a data-toggle="modal" href="#<?= $product["slug"] ?>" data-target="#<?= $product["frm_modal_target"] ?>" data-prop="<?= $product["slug"] ?>" class="mdlopen offerbutton hvr-grow" title="<?= $product["title"] ?>">
+                                <i class="material-icons"><?= $product["img_maticon"] ?></i>
+                            </a>
+                            <h3 class="titleh3"><?= $product["title"] ?></h3>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
-                <?php }?>
             </div>
         </div>
     </div>
@@ -63,18 +63,18 @@
                 <span class="section-separator mb-3"></span>
                 <h3><?= __("all.partners_text") ?></h3>
             </div>
-            <?php foreach($partners->d as $partner) {?>
-            <div class="col" data-aos="zoom-out">
-                <a href="<?= $partner["slug"]?>" class="offerbutton hvr-grow">
-                    @if(!empty($partner["img_icon"]))
-                    <i class="material-icons"><?= $partner["img_icon"] ?></i>
-                    @else
-                    <img class="svg partners-svg-img lazy" src="<?= $partner['img_banner'] ?>" data-src="<?= $partner['img_banner'] ?>" alt="<?= $partner["title"] ?>" title="<?= $partner["title"] ?>">
-                    @endif
-                </a>
-                <h3 class="titleh3"><?= $partner["title"] ?></h3>
-            </div>
-            <?php }?>
+            <?php foreach ($partners->d as $partner) { ?>
+                <div class="col" data-aos="zoom-out">
+                    <a href="<?= $partner["slug"] ?>" class="offerbutton hvr-grow">
+                        <?php if (!empty($partner["img_icon"])) : ?>
+                            <i class="material-icons"><?= $partner["img_icon"] ?></i>
+                        <?php else : ?>
+                            <img class="svg partners-svg-img lazy" src="<?= $partner['img_banner'] ?>" data-src="<?= $partner['img_banner'] ?>" alt="<?= $partner["title"] ?>" title="<?= $partner["title"] ?>">
+                        <?php endif; ?>
+                    </a>
+                    <h3 class="titleh3"><?= $partner["title"] ?></h3>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <div class="section-color section-pading">
@@ -140,30 +140,22 @@
                 </div>
                 <div class="col-lg-6 pl-lg-5">
                     <div id="accordion">
-                        @php
-                        $count = 0
-                        @endphp
-                        @foreach(json_decode($whyus_data["d"]["veriable"]) as $whyus)
-                        @php
-                        $count++
-                        @endphp
                         <div class="cards">
                             <div id="headingYeniden Sigortacılık">
                                 <h5 class="mb-1">
-                                    <div class="btn btn-primary accordion-item" data-toggle="collapse" data-target="#<?= $whyus->title ?> Sigortacılık" aria-expanded="true" aria-controls="collapse Yeniden Sigortacılık" style="width:100%;">
-                                        <?= $whyus->title ?>
+                                    <div class="btn btn-primary accordion-item" data-toggle="collapse" data-target="#<?= $whyus_data->d["title"] ?> Sigortacılık" aria-expanded="true" aria-controls="collapse Yeniden Sigortacılık" style="width:100%;">
+                                        <?= $whyus_data->d["title"] ?>
                                     </div>
                                 </h5>
                             </div>
-                            <div id="<?= $whyus->title ?> Sigortacılık" class="collapse @if($count == 1) show @else hide @endif" aria-labelledby="<?= $whyus->title ?> Sigortacılık" data-parent="#accordion">
+                            <div id="<?= $whyus_data->d["title"] ?> Sigortacılık" class="collapse @if($count == 1) show @else hide @endif" aria-labelledby="<?= $whyus_data->d["title"] ?> Sigortacılık" data-parent="#accordion">
                                 <div>
                                     <h4 class="pl-3 pr-3 text-justify coltext">
-                                        <?= $whyus->slogan ?>
+                                        <?= $whyus_data->d["slogan"] ?>
                                     </h4>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
 
                     </div>
                 </div>
