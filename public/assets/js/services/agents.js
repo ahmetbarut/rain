@@ -1,56 +1,55 @@
-var unitCode = $("#unitCode").val();
-
-$(document).ready(function (){
+const unitCode = $("#unitCode").val();
+let csrf = $("input[name=_token]").val();
+$(document).ready(function() {
     let cityCode;
     let townCode;
-    $(".city").change(function (){
-        cityCode = $(this, "option:selected").val();
-        $("#loading").fadeIn();
 
-        $(".states select option").prop("disabled", false).remove();
+    $(".city").change(function() {
+        cityCode = $(this, "option:selected").val();
+        $(".towns option").remove();
+        $("#loading, #loading .loading").fadeIn();
+        townCode = "";
         $.ajax({
             method: "POST",
-            data: {cityCode: cityCode},
-            url: "/getStates",
-            success: function (response) {
-                $("#loading").fadeOut();
-                if (response.status === false)
-                {
+            data: { cityCode: cityCode, _token: csrf },
+            url: "/" + language + "/getStates",
+            success: function(response) {
+                if (response.status === false) {
                     Swal.fire(
                         response.title,
                         response.message,
                         response.type
                     );
-                }else if (response.status === true){
+                } else if (response.status === true) {
 
-                    response.data.map(function (elements){
+                    response.data.map(function(elements) {
                         $(".states select").prepend(`
-                      <option value="${elements.id}">${elements.name}</option>  
+                      <option value="${elements.id}">${elements.name}</option>
                     `);
                     });
                     $(".states select").prepend(`
-                      <option disabled selected>${response.keywords}</option>  
+                      <option selected>${response.keys}</option>
                     `);
+                    $("#loading").fadeOut();
+
                 }
             }
         })
     });
-    $(".states").change(function (){
+    $(".towns").change(function() {
         townCode = $(this, "option:selected").val();
     })
-    $("#btnServices").click(function (){
+    $("#btnServices").click(function() {
         $("#loading").fadeIn();
         $(".proposal-form-card").addClass("d-none");
         $(".card-2").remove();
         $.ajax({
             method: "POST",
-            data: {cityCode: cityCode, townCode:townCode, unitCode : unitCode},
-            url: "/getAgents",
-            success: function (response) {
-                $(".m-none").fadeOut();
-
-                if (response.status === false)
-                {
+            data: { cityCode: cityCode, townCode: townCode, unitCode: unitCode, _token: csrf },
+            url: "/" + language + "/getAgents",
+            success: function(response) {
+                $("#loading").fadeOut();
+                if (response.status === false) {
                     Swal.fire(
                         response.title,
                         response.message,
@@ -69,8 +68,8 @@ $(document).ready(function (){
                         </div>
                     </div>
                     `)
-                }else if (response.status === true){
-                    response.data.map(function (name) {
+                } else if (response.status === true) {
+                    response.data.map(function(name) {
                         $("#services-list").prepend(`
                 <div class="card-2">
                     <div class="row">
@@ -89,7 +88,8 @@ $(document).ready(function (){
                         </div>
                     </div>
                 </div>
-            `)
+            `);
+                        scrollTop("#services-list");
                     })
                 }
             }

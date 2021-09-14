@@ -19,7 +19,15 @@ if (!function_exists('load_page')) {
 
 if(!function_exists('asset'))
 {
-    function asset($asset) {
-        return  "//". $_SERVER["HTTP_HOST"] . "/" . $asset;
+    function asset($asset = null) {
+        return  "//". $_SERVER["HTTP_HOST"] . (null == $asset) ? "" :  "/" . $asset;
+    }
+}
+
+if(!function_exists('__'))
+{
+    function __($key)
+    {
+        return trans($key);
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0126ed93d7bbcc8a07169dd4f25ad5b",
+    "content-hash": "bea94cb3d78af12b5ef7b0a35e83cf5a",
     "packages": [
         {
             "name": "ahmetbarut/php-router",
@@ -49,6 +49,104 @@
                 "source": "https://github.com/ahmetbarut/php-router/tree/v1.0.1"
             },
             "time": "2021-09-13T12:29:54+00:00"
+        },
+        {
+            "name": "ahmetbarut/translation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ahmetbarut/php-translation.git",
+                "reference": "b9684e0c6d7ba32a3e31b31d7e7aac6f22e99738"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/b9684e0c6d7ba32a3e31b31d7e7aac6f22e99738",
+                "reference": "b9684e0c6d7ba32a3e31b31d7e7aac6f22e99738",
+                "shasum": ""
+            },
+            "require-dev": {
+                "symfony/var-dumper": "*"
+            },
+            "default-branch": true,
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "ahmetbarut\\Translation\\": "src/"
+                },
+                "files": [
+                    "./src/Helper/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmet Barut",
+                    "email": "ahmetbarut588@gmail.com"
+                }
+            ],
+            "description": "Çoklu dil kullanan web sitesinde birden fazla dil ve kullanım kolaylığı sunuyor.",
+            "support": {
+                "issues": "https://github.com/ahmetbarut/php-translation/issues",
+                "source": "https://github.com/ahmetbarut/php-translation/tree/master"
+            },
+            "time": "2021-09-07T22:41:45+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "2ae37329ee82f91efadc282cc2d527fd6065a5ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/2ae37329ee82f91efadc282cc2d527fd6065a5ef",
+                "reference": "2ae37329ee82f91efadc282cc2d527fd6065a5ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/2.0.1"
+            },
+            "time": "2021-03-24T13:40:57+00:00"
         }
     ],
     "packages-dev": [
@@ -225,6 +323,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "psr/container": 20,
+        "ahmetbarut/translation": 20,
         "symfony/var-dumper": 20
     },
     "prefer-stable": false,

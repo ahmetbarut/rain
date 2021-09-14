@@ -1,3 +1,3 @@
 <?php 
 
-$router->get('/', "HelloController@index");
+$router->get('/', "HomeController@index");

@@ -3,7 +3,7 @@ $(document).ready(function () {
     let identity;
     $("#register-btn").click(function () {
 
-        var identity = $("#usernameforreg").val()
+        identity = $("#usernameforreg").val()
         var phoneNumber = $("#phonenumforreg").val()
         var contract1 = $("input[name=contract1]").val()
         var contract2 = $("input[name=contract2]").val()
@@ -108,7 +108,7 @@ $(document).ready(function () {
     });
 
     $("#btn-reg").click(function (){
-        code = $("#auth_cliregister #v_code").val();
+        code = $("#auth_cliregister #register_v_code").val();
 
         $.ajax({
             url: "/" + language + "/registerVerify",
@@ -128,7 +128,7 @@ $(document).ready(function () {
                         response.message,
                         response.type
                     );
-                    $("#client-register-code").addClass("d-none");
+                    $("#auth_cliregister").removeClass("show");
                 }else {
                     swalFire(
                         response.title,

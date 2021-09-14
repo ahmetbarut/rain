@@ -10,18 +10,24 @@ class ComposerStaticInitf1606d12b6239ba56278bc3402aefda8
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '656970800e23144bfd9bfd1406cb783c' => __DIR__ . '/..' . '/ahmetbarut/php-router/src/Helper/helpers.php',
+        '4cb00f382844c197814156a75d06a25f' => __DIR__ . '/..' . '/ahmetbarut/translation/src/Helper/helper.php',
         'c4337e685fbc52b8c24b7d03cac0b82c' => __DIR__ . '/../..' . '/core/Helper/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'a' => 
         array (
+            'ahmetbarut\\Translation\\' => 23,
             'ahmetbarut\\PhpRouter\\' => 21,
         ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\VarDumper\\' => 28,
+        ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
         ),
         'C' => 
         array (
@@ -34,6 +40,10 @@ class ComposerStaticInitf1606d12b6239ba56278bc3402aefda8
     );
 
     public static $prefixDirsPsr4 = array (
+        'ahmetbarut\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ahmetbarut/translation/src',
+        ),
         'ahmetbarut\\PhpRouter\\' => 
         array (
             0 => __DIR__ . '/..' . '/ahmetbarut/php-router/src',
@@ -45,6 +55,10 @@ class ComposerStaticInitf1606d12b6239ba56278bc3402aefda8
         'Symfony\\Component\\VarDumper\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Core\\' => 
         array (

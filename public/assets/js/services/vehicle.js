@@ -68,12 +68,12 @@ $(document).ready(function () {
             if (response.status) {
                 $("#CarsCasco").prepend(`
                     <div style="text-align: center; padding: 17%">
-                        <h2>Seçim Yapılan Aracın Değeri</h2>
+                        <h2>${response.keyword}</h2>
                         <br>
                         <h1 style="color:red; font-weight:bold;">${response.price} ₺</h1>
                     </div>
-            `)
-
+            `);
+                scrollTop("#CarsCasco");
             } else {
                 swalFire(
                     response.title, response.message, response.type

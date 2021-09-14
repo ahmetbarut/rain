@@ -162,8 +162,6 @@ function UserInfoPartialViewReflesh() {
                 $(".userInfoPartialRenderHtml").html(n.ResultValue);
                 $("#proposal-left-bar-step-3:visible").length != 0 && ($("#step1Text").hide(), $("#step2Text").hide(), $("#step3Text").show())
         }
-        console.log("User Info Partial View BİTİŞ");
-        console.log(Date())
     })
 }
 

@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function() {
     csrf = $("input[name=_token]").val();
     $(".recaptcha-area").removeClass("d-none");
-    $("#btnProposal").click(function () {
+    $("#btnProposal").click(function() {
         var recaptcha = $("#g-recaptcha-response").val()
         var clino = $("input[name=clino]").val();
         var cliid = $("input[name=cliid]").val();
@@ -32,11 +32,11 @@ $(document).ready(function () {
                 recaptcha: recaptcha,
 
             },
-            success: function (response) {
+            success: function(response) {
                 $("#loading").fadeOut();
                 if (response.status === false) {
                     if (response.messages) {
-                        response.messages.map(function (message) {
+                        response.messages.map(function(message) {
                             swalFire(
                                 response.title,
                                 message,
@@ -51,9 +51,9 @@ $(document).ready(function () {
                         );
                     }
                 } else {
-                    $("#price").removeClass("d-none")
-                    $(".total span").text(response.data.price);
-                    $(".policy_no span").text(response.data.proposal_number);
+                    $('html, body').animate({
+                        scrollTop: $("#price").offset().top
+                    }, 1000);
                 }
             }
         })
