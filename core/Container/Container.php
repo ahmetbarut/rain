@@ -7,8 +7,19 @@ use Psr\Container\ContainerInterface;
 
 class Container implements ContainerInterface 
 {
+
+    /**
+     * Girişi yapılan sınıfları tutar.
+     *
+     * @var array
+     */
     protected array $entries = [];
 
+    /**
+     * Çözümlenen sınıfları tutar.
+     *
+     * @var array
+     */
     public static $resolved = [];
 
     public function __construct()
@@ -17,6 +28,7 @@ class Container implements ContainerInterface
     }
 
     /**
+     * Kapsayıcıdan istenen sınıfı döndürür.
      * @throws NotRouteFound
      */
     public function get(string $id)
@@ -36,11 +48,24 @@ class Container implements ContainerInterface
         return $callback;
     }
 
+    /**
+     * Kapsayıcıda belirtilen sınıfın örneğini kontrol eder.
+     *
+     * @param string $id
+     * @return boolean
+     */
     public function has(string $id): bool
     {
         return isset($this->entries[$id]);
     }
 
+    /**
+     * Kapsayıcıya yeni sınıf örneğini ekler.
+     *
+     * @param string $abstract
+     * @param string $concrete
+     * @return static
+     */
     public function set($abstract, $concrete = null): static
     {
         if(null === $concrete){
@@ -50,6 +75,12 @@ class Container implements ContainerInterface
         return $this;
     }
 
+    /**
+     * Belirtilen sınıfın yansımasını getirir.
+     *
+     * @param string $id
+     * @return \ReflectionClass $reflection
+     */
     public function getReflector($id)
     {
         try {
@@ -60,5 +91,13 @@ class Container implements ContainerInterface
         }
 
         return $reflection;
+    }
+
+    public static function __callStatic($name, $arguments)
+    {
+        if("instance" === $name)
+        {
+            return (new static)->get(current($arguments));
+        }
     }
 }

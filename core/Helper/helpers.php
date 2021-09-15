@@ -1,24 +1,31 @@
 <?php
 
+use Core\Container\Container;
 use Core\View\Render;
 
 if (!function_exists('config')) {
+
+    /**
+     * Yapılandırma dosyalarından istenen yapılandırmaları çeker. 
+     * Bu yardımcı fonksiyon config/ içindeki bütün yapılandırma dosyalarına erişebiliyor.
+     *
+     * @param string $key
+     * @return Core\Container\Container
+     */
     function config($key)
     {
-        return (new \Core\Config\App)->get($key);
-    }
-}
-
-if (!function_exists('load_page')) {
-
-    function load_page($view, $properties = null)
-    {
-        (new Render)->getPage($view, $properties);
+        return Container::instance("config")->get($key);
     }
 }
 
 if(!function_exists('asset'))
 {
+    /**
+     * public dizinini döndürür.
+     *
+     * @param string $asset
+     * @return void
+     */
     function asset($asset = null) {
         return  "//". $_SERVER["HTTP_HOST"] . (null == $asset) ? "" :  "/" . $asset;
     }
@@ -26,8 +33,25 @@ if(!function_exists('asset'))
 
 if(!function_exists('__'))
 {
-    function __($key)
+    /**
+     * Çeviri dosyalarındaki değerlere erişir.
+     *
+     * @param string $key
+     * @return string
+     */
+    function __(string $key)
     {
         return trans($key);
     }
+}
+
+/**
+ * Kapsayıcıdan istenen sınıf örneğini döndürür.
+ *
+ * @param string $abstract
+ * @return void
+ */
+function app(string $abstract)
+{
+    return (new Container())->get($abstract);
 }

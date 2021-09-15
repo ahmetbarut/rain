@@ -4,51 +4,52 @@ namespace Core\View;
 
 class Render
 {
-    private $view;
+    /**
+     * Denetleyici tarafından gönderilen değişkenleri depolar.
+     *
+     * @var array
+     */
+    public $data;
 
-    private $data;
-
+    /**
+     * Yüklenmesi istenen görünümü ve değişkenleri hazırlar.
+     *
+     * @param string $view
+     * @param array $data
+     * @return void
+     */
     public function render($view, $data = null)
     {
+        if(null !== $data) {
+            $this->data = $data;
+        }
         $this->load($view, $data);
     }
 
-    public function data($key, $value = null)
-    {
-        if (is_array($key)) {
-            $this->data = array_merge($this->data, $key);
-        } else {
-            $this->data[$key] = $value;
-        }
-
-        return $this;
-    }
-
+    /**
+     * Görünümleri yüklemek için dizini alması gerekir.
+     *
+     * @return Core\Container\Container
+     */
     public function getConfigPath()
     {
         return config('view.path');
     }
 
-    public function getPage($page, $properties = "")
-    {
-        extract(array_merge([
-            "render" => new $this,
-        ], $properties));
-        include_once $this->getConfigPath() . '/' . $page . ".php";
-    }
-
+    /**
+     * İlgili görünümü yükler ve parametreleri değişkene döndürür.
+     *
+     * @param string $view
+     * @param array $data
+     * @return void
+     */
     public function load($view, $data = null)
     {
         if (!is_null($data)) {
             extract($data, EXTR_OVERWRITE);
         }
-        extract([
-            "render" => new $this,
-        ]);
-        $include = include $this->getConfigPath() . '/' . $view . ".php";
-        if($include)
-        {
-            return $include;
-        }
+
+        include $this->getConfigPath() . '/' . $view . ".php";
     }
+    
 }

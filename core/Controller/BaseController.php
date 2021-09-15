@@ -2,13 +2,18 @@
 
 namespace Core\Controller;
 
-use ahmetbarut\PhpRouter\Request\Request;
-use ahmetbarut\PhpRouter\Router\Router;
 use Core\View\Render;
 
-class BaseController extends Render{
+class BaseController extends Render
+{
 
-    public function view($view, $data = null)
+    /**
+     * Görünüm döndürür.
+     * @param string $view
+     * @param array $data
+     * @return void
+     */
+    public function view(string $view, array $data = null)
     {
         $this->render($view, $data);
     }
