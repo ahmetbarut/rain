@@ -15,23 +15,23 @@
 Çerçeve geliştirme aşamasındadır burda belirtilen özellik ve yapılar ilerde değişebilir.
 
 # Dizin Yapısı
-## config
+## [config](Docs/config.md)
 `config` dizini, çerçevenin yapılandırma dosyalarını tutar. Tüm yapılandırmaları bir yerde bulunmasının amacı karmaşayı ortadan kaldırmaya çalışmaktır.
-## core
+## [core](Docs/core.md)
 `core` dizini, çerçevenin kaynak kodlarını tutar. Çerçeveye eklenmesi istenen tüm kodların bulunacağı dizindir.
-## public
+## [public](Docs/public.md)
 `public` dizini, halka açık tek dizin olması amaçlanmaktadır aksi takdirde güvenlik ile ilgili problemler oluşabilir. `public` içinde, `javascript`, `css` ve `fotoğraflarlar` bulunur. 
-## router
+## [router](Docs/router.md)
 `router` dizini, yönlendirmelerin bulunduğu dizindir. İçinde şuanda sadece `routes.php` dosyası var.
-## src
+## [src](Docs/src.md)
 `src` dizini, uygulamayı yönetmek için yazacağımız kodları içerir. 
-## template 
+## [template](Docs/template.md) 
 `template` dizini, şablonlarımızın bulunduğu dizindir. 
-## translation 
+## [translation](Docs/translation.md) 
 `translation` dizini, çerçevenin dil dosyalarını tutar. 
-## tests 
+## [tests](Docs/tests.md) 
 `tests` dizini, teslerin bulunduğu dizindir.
-## vendor
+## [vendor](Docs/vendor.md)
 `vendor` dizini, `composer` ile kurulan bağımlılıkların toplandığı dizindir.
 
 # Kullanım 
