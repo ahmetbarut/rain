@@ -14,3 +14,8 @@ $router = new Router([
     "namespace" => "App\\Controller\\",
     "debug" => true,
 ]);
+
+
+return [
+    "path" => dirname(__DIR__) . "/router",
+];

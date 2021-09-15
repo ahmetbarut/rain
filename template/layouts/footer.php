@@ -41,7 +41,7 @@
             <div class="row">
                 <!--About -->
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <h3 class="mt-3 mb-3">{{ __("all.corporate") }}</h3>
+                    <h3 class="mt-3 mb-3"><?= __("all.corporate") ?></h3>
                     <ul class="links">
                         @foreach($corporates["d"] as $corporate)
                             <li>
@@ -57,36 +57,36 @@
 
                 <!--Sitemap-->
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <h3 class="mt-3 mb-3">{{ __("all.site_map") }}</h3>
+                    <h3 class="mt-3 mb-3"><?= __("all.site_map") ?></h3>
                     <ul class="links" id="sitemap">
                         <li>
                             <a class="hvr-icon-forward"
                                href="{{ route( "services", __("all.slug_agents")) }}"><span
-                                    class="material-icons hvr-icon">chevron_right</span> {{ __("all.agents") }}
+                                    class="material-icons hvr-icon">chevron_right</span> <?= __("all.agents") ?>
                             </a>
                         </li>
                         <li>
                             <a class="hvr-icon-forward"
                                href="{{ route("services" , __("all.slug_glass")) }}"><span
-                                    class="material-icons hvr-icon">chevron_right</span> {{ __("all.controacted-glass-services") }}
+                                    class="material-icons hvr-icon">chevron_right</span> <?= __("all.controacted-glass-?>rvices") ?>
                             </a>
                         </li>
                         <li>
                             <a class="hvr-icon-forward"
                                href="{{ route("contact") }}"><span
-                                    class="material-icons hvr-icon">chevron_right</span> {{ __("all.contact") }}
+                                    class="material-icons hvr-icon">chevron_right</span> <?= __("all.contact") ?>
                             </a>
                         </li>
                         <li>
                             <a class="hvr-icon-forward"
                                href="{{ route("blog") }}"><span
-                                    class="material-icons hvr-icon">chevron_right</span> {{ __("Blog") }}
-                            </a>
+                                    class="material-icons hvr-icon">chevron_right</span> <?= __("Blog") ?>
+?>                          </a>
                         </li>
                         <li>
                             <a class="hvr-icon-forward"
                                href="{{ route("vehicle.show", "kasko-deger-listesi") }}"><span
-                                    class="material-icons hvr-icon">chevron_right</span> {{ __("all.insurance_value_list") }}
+                                    class="material-icons hvr-icon">chevron_right</span> <?= __("all.insurance_value_list") ?>
                             </a>
                         </li>
 
@@ -97,18 +97,18 @@
 
                 <!--Useful Links-->
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <h3 class="mt-3 mb-3">{{ __("all.use_full_links") }}</h3>
+                    <h3 class="mt-3 mb-3"><?= __("all.use_full_links") ?></h3>
                     <ul class="links">
                         <li>
                             <a class="hvr-icon-forward" href="https://www.tsb.org.tr/" rel="noopener"
                                target="_blank"><span class="material-icons hvr-icon">chevron_right</span>
-                                {{ __("all.turkish_insurance_association") }}
+                                <?= __("all.turkish_insurance_association") ?>
                             </a>
                         </li>
                         <li>
                             <a class="hvr-icon-forward" href="https://www.egm.org.tr/" rel="noopener"
                                target="_blank"><span class="material-icons hvr-icon">chevron_right</span>
-                                {{ __("all.retirement_surveillance_system") }}
+                                <?= __("all.retirement_surveillance_system") ?>
 
                             </a>
                         </li>
@@ -116,7 +116,7 @@
                             <a class="hvr-icon-forward"
                                href="https://www.tsb.org.tr/default.aspx?pageID=654&yid=193" rel="noopener"
                                target="_blank"><span class="material-icons hvr-icon">chevron_right</span>
-                                {{ __("all.insurance_law") }}
+                                <?= __("all.insurance_law") ?>
                             </a>
                         </li>
                     </ul>
@@ -126,7 +126,7 @@
                 <!--Contact -->
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="align-content-start">
-                        <h3 class="mt-3 mb-3">{{ __("all.contact") }}</h3>
+                        <h3 class="mt-3 mb-3"><?= __("all.contact") ?></h3>
                         <ul class="links">
                             <li>
                                 <a class="hvr-icon-forward" href="tel:{{ $settings ["h_phone"] }}">
@@ -160,7 +160,7 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <a class="mr-4 kvkk"
-                       href="{{ route("contracts", $contractSlug) }}">{{ __("all.contracts") }}</a>
+                       href="{{ route("contracts", $contractSlug) }}"><?= __("all.contracts") ?></a>
                 </div>
             </div>
         </div>
@@ -178,27 +178,27 @@
                     style="color: red"
                 @endif>
                     <i class="material-icons">home</i>
-                    {{ __("all.home") }}
+                    <?= __("all.home") ?>
                 </div>
             </a>
 
             <a href="tel:{{ $settings["m_phone"] }}" class="bottom-nav-item">
                 <div class="bottom-nav-link">
                     <i class="material-icons">phone</i>
-                    {{ __("all.damage_notice") }}
+                    <?= __("all.damage_notice") ?>
                 </div>
             </a>
             <a href="@if(isActive(asset("/". App::getLocale()))){{ "#" }}@else{{ asset("/#get_offer") }}@endif" class="bottom-nav-item @if(isActive(asset("/" . App::getLocale()))) goToOffer @endif">
                 <div class="bottom-nav-link">
                     <i class="material-icons">policy</i>
-                    {{ __("all.get_offer") }}
+                    <?= __("all.get_offer") ?>
                 </div>
             </a>
             <a href="{{ (isActive(route("services", __("all.slug_agents")))) ? "" : route("services", __("all.slug_agents")) }}" class="bottom-nav-item">
                 <div class="bottom-nav-link "@if (isActive(route("services", __("all.slug_agents"))))
                 style="color: red"@endif>
                     <i class="material-icons">how_to_reg</i>
-                    {{ __("all.agents") }}
+                    <?= __("all.agents") ?>
                 </div>
             </a>
         </nav>
@@ -221,6 +221,44 @@
 <script src="<?=asset("/")?>assets/js/services/register.js"></script>
 <script src="<?=asset("/")?>assets/js/kit.min.js"></script>
 <script src="<?=asset("/")?>assets/js/cookie.js"></script>
+  
+<script src="assets/js/services/apeal_agents.js"></script>
+    <script src="assets/js/services/index.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                method: "POST",
+                url: "/" + language + "/getCity",
+                data: {
+                    _token: $("meta[name=csrf-token]").attr("content"),
+                },
+                success: function(response) {
+                    $(".plaque").prepend(`<option selected disabled>${response.key}</option>`);
+                    response.data.map(function(cities) {
+                        $(".plaque").prepend(`
+                    <option value="${cities.id}">${cities.id} - ${cities.name}</option>
+                `)
+                    });
+                }
+            });
+            $.ajax({
+                method: "POST",
+                url: "/" + language + "/getJobs",
+                data: {
+                    _token: $("meta[name=csrf-token]").attr("content"),
+                },
+                success: function(response) {
+                    $(".jobs").prepend(`<option selected disabled>${response.key}</option>`);
+                    response.data.map(function(jobs) {
+                        $(".jobs").prepend(`
+                    <option value="${jobs.j_code}">${jobs.j_name}</option>
+                `)
+                    });
+                },
+            });
+        });
+    </script>
 <script>
     $(".goToOffer").click(function (event){
         event.preventDefault();
@@ -231,8 +269,6 @@
 
 
 </script>
-
-@yield("scriptjs")
 
 </body>
 

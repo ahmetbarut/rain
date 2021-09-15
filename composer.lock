@@ -4,26 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bea94cb3d78af12b5ef7b0a35e83cf5a",
+    "content-hash": "cd723283253eda1ae8881642cc270934",
     "packages": [
         {
             "name": "ahmetbarut/php-router",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-router.git",
-                "reference": "f255c50842e18af89f8df15bf03ee8001a278eea"
+                "reference": "4c4a663b972abd6794b395649e95ca9a4173513c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/f255c50842e18af89f8df15bf03ee8001a278eea",
-                "reference": "f255c50842e18af89f8df15bf03ee8001a278eea",
+                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/4c4a663b972abd6794b395649e95ca9a4173513c",
+                "reference": "4c4a663b972abd6794b395649e95ca9a4173513c",
                 "shasum": ""
             },
             "require-dev": {
                 "symfony/http-foundation": "6.0.x-dev",
                 "symfony/var-dumper": "*"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -46,9 +47,9 @@
             "description": "Php simple use router",
             "support": {
                 "issues": "https://github.com/ahmetbarut/php-router/issues",
-                "source": "https://github.com/ahmetbarut/php-router/tree/v1.0.1"
+                "source": "https://github.com/ahmetbarut/php-router/tree/master"
             },
-            "time": "2021-09-13T12:29:54+00:00"
+            "time": "2021-09-15T06:49:44+00:00"
         },
         {
             "name": "ahmetbarut/translation",
@@ -56,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-translation.git",
-                "reference": "b9684e0c6d7ba32a3e31b31d7e7aac6f22e99738"
+                "reference": "246baaa80c9da8c2f2754a208150d6f96fca81f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/b9684e0c6d7ba32a3e31b31d7e7aac6f22e99738",
-                "reference": "b9684e0c6d7ba32a3e31b31d7e7aac6f22e99738",
+                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/246baaa80c9da8c2f2754a208150d6f96fca81f2",
+                "reference": "246baaa80c9da8c2f2754a208150d6f96fca81f2",
                 "shasum": ""
             },
             "require-dev": {
@@ -90,9 +91,9 @@
             "description": "Çoklu dil kullanan web sitesinde birden fazla dil ve kullanım kolaylığı sunuyor.",
             "support": {
                 "issues": "https://github.com/ahmetbarut/php-translation/issues",
-                "source": "https://github.com/ahmetbarut/php-translation/tree/master"
+                "source": "https://github.com/ahmetbarut/php-translation/tree/v1.0.2"
             },
-            "time": "2021-09-07T22:41:45+00:00"
+            "time": "2021-09-15T11:58:06+00:00"
         },
         {
             "name": "psr/container",
@@ -156,12 +157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
+                "reference": "344e456152e22a1bce3048c6c311059ea14bde47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/344e456152e22a1bce3048c6c311059ea14bde47",
+                "reference": "344e456152e22a1bce3048c6c311059ea14bde47",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +214,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/main"
             },
             "funding": [
                 {
@@ -229,7 +230,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T12:26:48+00:00"
+            "time": "2021-09-13T13:54:24+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -323,6 +324,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "ahmetbarut/php-router": 20,
         "psr/container": 20,
         "ahmetbarut/translation": 20,
         "symfony/var-dumper": 20

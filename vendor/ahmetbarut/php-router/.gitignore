@@ -1,0 +1,8 @@
+/vendor/
+index.php
+/test
+*.lock
+/Docs.md
+Readme.md
+/app
+.idea

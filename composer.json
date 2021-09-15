@@ -3,7 +3,7 @@
     "description": "Sigorta türk",
     "type": "project",
     "require": {
-        "ahmetbarut/php-router": "v1.*",
+        "ahmetbarut/php-router": "dev-master",
         "psr/container": "2.0.x-dev",
         "ahmetbarut/translation": "dev-master"
     },

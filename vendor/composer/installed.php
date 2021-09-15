@@ -1,0 +1,76 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => '4021f8a8d958e045813cce09453acd236a52bc7d',
+        'name' => 'sigortaturk/mvc',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'ahmetbarut/php-router' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ahmetbarut/php-router',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '4c4a663b972abd6794b395649e95ca9a4173513c',
+            'dev_requirement' => false,
+        ),
+        'ahmetbarut/translation' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../ahmetbarut/translation',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '246baaa80c9da8c2f2754a208150d6f96fca81f2',
+            'dev_requirement' => false,
+        ),
+        'psr/container' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/container',
+            'aliases' => array(
+                0 => '2.0.x-dev',
+            ),
+            'reference' => '2ae37329ee82f91efadc282cc2d527fd6065a5ef',
+            'dev_requirement' => false,
+        ),
+        'sigortaturk/mvc' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => '4021f8a8d958e045813cce09453acd236a52bc7d',
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-mbstring' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
+            'aliases' => array(
+                0 => '1.23.x-dev',
+            ),
+            'reference' => '344e456152e22a1bce3048c6c311059ea14bde47',
+            'dev_requirement' => true,
+        ),
+        'symfony/var-dumper' => array(
+            'pretty_version' => '6.0.x-dev',
+            'version' => '6.0.9999999.9999999-dev',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/var-dumper',
+            'aliases' => array(),
+            'reference' => '8eea4e86e7c050924f406e740d8e04eb2eb69b9d',
+            'dev_requirement' => true,
+        ),
+    ),
+);

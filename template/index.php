@@ -1,4 +1,5 @@
-<?php include __DIR__ . '/layouts/header.php' ?>
+<?php app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates'))->startSection('content');  ?>
+
 <div class="main">
     <script>
         var sliderforhome = 1;
@@ -140,23 +141,33 @@
                 </div>
                 <div class="col-lg-6 pl-lg-5">
                     <div id="accordion">
-                        <div class="cards">
-                            <div id="headingYeniden Sigortacılık">
-                                <h5 class="mb-1">
-                                    <div class="btn btn-primary accordion-item" data-toggle="collapse" data-target="#<?= $whyus_data->d["title"] ?> Sigortacılık" aria-expanded="true" aria-controls="collapse Yeniden Sigortacılık" style="width:100%;">
-                                        <?= $whyus_data->d["title"] ?>
+                        <?php
+                        $count = 0
+                        ?>
+                        <?php foreach (json_decode($whyus_data->d["veriable"]) as $whyus) :
+                            $count++;
+                        ?>
+                            <div class="cards">
+                                <div id="headingYeniden Sigortacılık">
+                                    <h5 class="mb-1">
+                                        <div class="btn btn-primary accordion-item" data-toggle="collapse" data-target="#<?= $whyus->title ?> Sigortacılık" aria-expanded="true" aria-controls="collapse Yeniden Sigortacılık" style="width:100%;">
+                                            <?= $whyus->title ?>
+                                        </div>
+                                    </h5>
+                                </div>
+                                <div id="<?= $whyus->title ?> Sigortacılık" class="collapse <?php if ($count == 1) {
+                                                                                                echo 'show';
+                                                                                            } else {
+                                                                                                echo 'hide';
+                                                                                            } ?>" aria-labelledby="<?= $whyus->title ?> Sigortacılık" data-parent="#accordion">
+                                    <div>
+                                        <h4 class="pl-3 pr-3 text-justify coltext">
+                                            <?= $whyus->slogan ?>
+                                        </h4>
                                     </div>
-                                </h5>
-                            </div>
-                            <div id="<?= $whyus_data->d["title"] ?> Sigortacılık" class="collapse @if($count == 1) show @else hide @endif" aria-labelledby="<?= $whyus_data->d["title"] ?> Sigortacılık" data-parent="#accordion">
-                                <div>
-                                    <h4 class="pl-3 pr-3 text-justify coltext">
-                                        <?= $whyus_data->d["slogan"] ?>
-                                    </h4>
                                 </div>
                             </div>
-                        </div>
-
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -221,43 +232,5 @@
             </div>
         </div>
     </div>
-    @endsection
-    @section("scriptjs")
-    <script src="assets/js/services/apeal_agents.js"></script>
-    <script src="assets/js/services/index.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                method: "POST",
-                url: "/" + language + "/getCity",
-                data: {
-                    _token: $("meta[name=csrf-token]").attr("content"),
-                },
-                success: function(response) {
-                    $(".plaque").prepend(`<option selected disabled>${response.key}</option>`);
-                    response.data.map(function(cities) {
-                        $(".plaque").prepend(`
-                    <option value="${cities.id}">${cities.id} - ${cities.name}</option>
-                `)
-                    });
-                }
-            });
-            $.ajax({
-                method: "POST",
-                url: "/" + language + "/getJobs",
-                data: {
-                    _token: $("meta[name=csrf-token]").attr("content"),
-                },
-                success: function(response) {
-                    $(".jobs").prepend(`<option selected disabled>${response.key}</option>`);
-                    response.data.map(function(jobs) {
-                        $(".jobs").prepend(`
-                    <option value="${jobs.j_code}">${jobs.j_name}</option>
-                `)
-                    });
-                },
-            });
-        });
-    </script>
-    <?php include __DIR__ . '/layouts/footer.php' ?>
+</div>
+<?php app('view')->stopSection() ?>
