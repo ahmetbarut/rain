@@ -45,6 +45,10 @@ class Render
         extract([
             "render" => new $this,
         ]);
-        include $this->getConfigPath() . '/' . $view . ".php";
+        $include = include $this->getConfigPath() . '/' . $view . ".php";
+        if($include)
+        {
+            return $include;
+        }
     }
 }
