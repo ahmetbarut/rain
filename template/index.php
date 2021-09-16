@@ -1,7 +1,5 @@
-
-<?php 
-    $title = "Anasayfa";
-app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 'title'))->startSection('content');  ?>
+<?php
+app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');  ?>
 
 <div class="main">
     <script>
@@ -185,7 +183,7 @@ app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i>
                     </button>
                 </div>
-                <?php app('view')->include("modals/off_travel");?>
+                <?php app('view')->include("modals/off_travel"); ?>
             </div>
         </div>
     </div>
@@ -196,7 +194,7 @@ app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i>
                     </button>
                 </div>
-                <?php app('view')->include("modals/off_casco");?>
+                <?php app('view')->include("modals/off_casco"); ?>
             </div>
         </div>
     </div>
@@ -207,7 +205,7 @@ app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i>
                     </button>
                 </div>
-                <?php app('view')->include("modals/off_traffic");?>
+                <?php app('view')->include("modals/off_traffic"); ?>
 
             </div>
         </div>
@@ -218,7 +216,7 @@ app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 
                 <div>
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i></button>
                 </div>
-                <?php app('view')->include("modals/off_home");?>
+                <?php app('view')->include("modals/off_home"); ?>
 
             </div>
         </div>
@@ -230,7 +228,7 @@ app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i></button>
                 </div>
 
-                <?php app('view')->include("modals/off_personalaccident");?>
+                <?php app('view')->include("modals/off_personalaccident"); ?>
 
             </div>
         </div>

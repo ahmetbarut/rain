@@ -2,8 +2,11 @@
 
 namespace Core\View;
 
-class Render
+class Render extends Component
 {
+
+    public static $shared;
+
     /**
      * Denetleyici tarafından gönderilen değişkenleri depolar.
      *
@@ -20,9 +23,10 @@ class Render
      */
     public function render($view, $data = null)
     {
-        if(null !== $data) {
+        if (null !== $data) {
             $this->data = $data;
         }
+        
         $this->load($view, $data);
     }
 
@@ -48,8 +52,11 @@ class Render
         if (!is_null($data)) {
             extract($data, EXTR_OVERWRITE);
         }
+        
+        if (!empty(app('view')::$shared)) {
+            extract(app('view')::$shared, EXTR_OVERWRITE);
+        }
 
-        include $this->getConfigPath() . '/' . $view . ".php";
+        require_once $this->getConfigPath() . '/' . $view . ".php";
     }
-    
 }

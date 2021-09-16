@@ -38,7 +38,9 @@
                    title="<?= __("all.phone_warning") ?>">
         </div>
         <div class="mt-3">
-            @include("pages.modals.contract")
+            <?php 
+                app('view')->include("modals/contract");
+            ?>
         </div>
     </div>
     <div class="text-center">

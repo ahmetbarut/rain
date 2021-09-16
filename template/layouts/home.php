@@ -1,7 +1,3 @@
-<?php
-
-use Core\Container\Container;
-?>
 <!DOCTYPE html>
 <html lang="<?= "App::getLocale()" ?>">
 
@@ -22,31 +18,31 @@ use Core\Container\Container;
     <meta name="reply-to" content="<?= $settings['mail'] ?>" />
     <meta name="robots" content="noindex, nofollow" />
     <meta property="article:publisher" content="<?= $settings['face_link'] ?>" />
-    <link rel="apple-touch-icon" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="167x167" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" />
     <meta name="Copyright" content="<?= date('Y') ?> Sigorta Türk A.Ş.">
     <title><?=$title?></title>
 
     {!! $seo !!}
-    <link rel="icon" type="image/png" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" sizes="16x16" />
 
     <link rel="preload" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons&display=swap" as="style" onload="this.onload=null; this.rel='stylesheet'" />
-    <link rel="preload" href="<?= asset("/") ?>assets/css/animate.min.css" as="style" onload="this.onload=null; this.rel='stylesheet'">
-    <link rel="stylesheet" href="<?= asset("/") ?>assets/css/hover-css/hover-min.css">
+    <link rel="preload" href="<?= asset("assets") ?>/css/animate.min.css" as="style" onload="this.onload=null; this.rel='stylesheet'">
+    <link rel="stylesheet" href="<?= asset("assets") ?>/css/hover-css/hover-min.css">
     <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null; this.rel='stylesheet'">
     <noscript id="deferred-styles">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons&display=swap" />
-        <link rel="stylesheet" href="<?= asset("/") ?>assets/css/animate.min.css">
+        <link rel="stylesheet" href="<?= asset("assets") ?>/css/animate.min.css">
         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css">
     </noscript>
-    <link rel="stylesheet" href="<?= asset("/") ?>assets/TimeCircles/TimeCircles.css">
+    <link rel="stylesheet" href="<?= asset("assets") ?>/TimeCircles/TimeCircles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <link rel="stylesheet" href="<?= asset("/") ?>assets/css/styles.css" />
-    <link rel="stylesheet" href="<?= asset("/") ?>assets/css/style.css" />
+    <link rel="stylesheet" href="<?= asset("assets") ?>/css/styles.css" />
+    <link rel="stylesheet" href="<?= asset("assets") ?>/css/style.css" />
     @yield('stylesheet')
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 
@@ -61,7 +57,7 @@ use Core\Container\Container;
         <div class="container">
             <div class="navbar-translate">
                 <div class="mr-md-5">
-                    <a href="<?= ('home') ?>"><img width="150" height="50" class="logo" src="<?= asset("/") ?>assets/images/logo/sigortaturklogo.png" alt="Sigorta Türk Logo"></a>
+                    <a href="<?= ('home') ?>"><img width="150" height="50" class="logo" src="<?= asset("assets") ?>/images/logo/sigortaturklogo.png" alt="Sigorta Türk Logo"></a>
                 </div>
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="text-primary center-align mr-2 tel display-none2" id="tel">
@@ -99,7 +95,7 @@ use Core\Container\Container;
                                 <nav class="dropdown-menu dropdown_menu-5 dropdown-with-icons">
                                     <?php foreach ($menu['sub'] as $subMenu) { ?>
                                         <?php if ($subMenu['lnkstyle'] == 1) { ?>
-                                            <a id="right-arrow" href="<?= "" ?>" class="dropdown-item mdlopener hvr-icon-forward dropdown_item">
+                                            <a id="right-arrow" href="<?= path("products", ['urun' => $subMenu['slug']], false) ?>" class="dropdown-item mdlopener hvr-icon-forward dropdown_item">
                                                 <i class="material-icons hvr-icon">chevron_right</i><?= $subMenu['title'] ?>
                                             </a>
                                         <?php } else { ?>
@@ -449,13 +445,13 @@ use Core\Container\Container;
         <div class="container">
             <div class="row" style="text-align:center;">
                 <div class="col-md-4" style="text-align:center;">
-                    <img class="lazy" src="<?= asset("/") ?>assets/images/mastercard.webp" data-src="<?= asset("/") ?>assets/images/mastercard.webp" alt="mastercard" title="mastercard" height="50" width="84" />
+                    <img class="lazy" src="<?= asset("assets") ?>/images/mastercard.webp" data-src="<?= asset("assets") ?>/images/mastercard.webp" alt="mastercard" title="mastercard" height="50" width="84" />
                 </div>
                 <div class="col-md-4">
-                    <img class="lazy" src="<?= asset("/") ?>assets/images/visa.webp" data-src="<?= asset("/") ?>assets/images/visa.webp" alt="visa" title="visa" height="50" width="89" />
+                    <img class="lazy" src="<?= asset("assets") ?>/images/visa.webp" data-src="<?= asset("assets") ?>/images/visa.webp" alt="visa" title="visa" height="50" width="89" />
                 </div>
                 <div class="col-md-4">
-                    <img style="max-width:150px;" src="<?= asset("/") ?>assets/images/american-express.webp" class="lazy" data-src="<?= asset("/") ?>assets/images/american-express.webp" alt="american express" title="american express" height="50" width="150" />
+                    <img style="max-width:150px;" src="<?= asset("assets") ?>/images/american-express.webp" class="lazy" data-src="<?= asset("assets") ?>/images/american-express.webp" alt="american express" title="american express" height="50" width="150" />
                 </div>
             </div>
         </div>
@@ -613,21 +609,21 @@ use Core\Container\Container;
     </nav>
     <!--/Mobile Menu-->
 
-    <script src="<?= asset("/") ?>assets/js/jquery.js"></script>
-    <script src="<?= asset("/") ?>assets/js/popper.min.js"></script>
-    <script src="<?= asset("/") ?>assets/js/select2.min.js"></script>
-    <script src="<?= asset("/") ?>assets/js/sweetalert2.all.min.js"></script>
-    <script src="<?= asset("/") ?>assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="<?= asset("assets") ?>/js/jquery.js"></script>
+    <script src="<?= asset("assets") ?>/js/popper.min.js"></script>
+    <script src="<?= asset("assets") ?>/js/select2.min.js"></script>
+    <script src="<?= asset("assets") ?>/js/sweetalert2.all.min.js"></script>
+    <script src="<?= asset("assets") ?>/js/core/bootstrap-material-design.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
-    <script src="<?= asset("/") ?>assets/js/mask.min.js"></script>
-    <script src="<?= asset("/") ?>assets/TimeCircles/TimeCircles.js"></script>
-    <script src="<?= asset("/") ?>assets/js/main.js"></script>
-    <script src="<?= asset("/") ?>assets/js/services/apeal_agents.js"></script>
-    <script src="<?= asset("/") ?>assets/js/services/register.js"></script>
-    <script src="<?= asset("/") ?>assets/js/kit.min.js"></script>
-    <script src="<?= asset("/") ?>assets/js/cookie.js"></script>
+    <script src="<?= asset("assets") ?>/js/mask.min.js"></script>
+    <script src="<?= asset("assets") ?>/TimeCircles/TimeCircles.js"></script>
+    <script src="<?= asset("assets") ?>/js/main.js"></script>
+    <script src="<?= asset("assets") ?>/js/services/apeal_agents.js"></script>
+    <script src="<?= asset("assets") ?>/js/services/register.js"></script>
+    <script src="<?= asset("assets") ?>/js/kit.min.js"></script>
+    <script src="<?= asset("assets") ?>/js/cookie.js"></script>
 
     <script src="assets/js/services/apeal_agents.js"></script>
     <script src="assets/js/services/index.js"></script>

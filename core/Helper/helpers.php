@@ -26,7 +26,12 @@ if(!function_exists('asset'))
      * @return void
      */
     function asset($asset = null) {
-        return  "//". $_SERVER["HTTP_HOST"] . (null == $asset) ? "" :  "/" . $asset;
+
+        $url = "";
+        if(array_key_exists('SERVER_PORT', $_SERVER)){
+            $url = ':' .  $_SERVER['SERVER_PORT']  .  "/" . $asset;
+        }
+        return trim(config('app.app_url') . $url, '/');
     }
 }
 
@@ -52,5 +57,5 @@ if(!function_exists('__'))
  */
 function app(string $abstract)
 {
-    return (new Container())->get($abstract);
+    return Container::instance($abstract);
 }

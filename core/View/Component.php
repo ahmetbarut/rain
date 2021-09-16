@@ -2,7 +2,7 @@
 
 namespace Core\View;
 
-class Component extends Render
+class Component
 {
     /**
      * Görünümdeki sayfaları tutar.
@@ -33,7 +33,7 @@ class Component extends Render
     private $vars = [];
 
     /**
-     * Ana bileşeni çağırır. Her dosya da sadece 1 defa kullanılmalı.
+     * Ana bileşeni çağırır. 
      *
      * @param string $layout Dahil edilmesi istenen sayfa adı. Örn: home.php "home" diye yazılır.
      * @param array $data gönderilmesi istenen değişkenler.
@@ -60,15 +60,16 @@ class Component extends Render
     }
 
     /**
-     * Bileşeni durdur. Öncesinde yazılan tüm kodları getirir ve ilgili bileşen adına ekler.
-     * ardından işler ve yazdırır.
+     * Bileşeni durdur. Öncesinde yazılan tüm kodları 
+     * getirir ve ilgili bileşen adına ekler, ardından işler ve yazdırır.
+     * 
      * @return void
      */
     public function stopSection()
     {
         $this->component[$this->section] = ob_get_clean();
 
-        echo $this->render($this->layout, $this->vars);
+        echo (new Render)->render($this->layout, $this->vars);
     }
 
     /**
@@ -84,7 +85,7 @@ class Component extends Render
 
     public function include($page)
     {
-        include config('view.path') . "/{$page}.php";
+        require_once config('view.path') . "/{$page}.php";
     }
     
 }

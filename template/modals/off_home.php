@@ -19,8 +19,9 @@
                    data-placement="top" title="<?= __("all.phone_warning") ?>">
         </div>
         <div class="mt-3">
-            @include("pages.modals.contract")
-        </div>
+        <?php 
+                app('view')->include("modals/contract");
+            ?>        </div>
     </div>
     <div class="text-center">
         <button type="button" onclick="validateForm('form[name=frm_off_residence]', 'home', '<?= ("offer.home") ?>')" id="btnSend" class="btn btn-primary mb-3 hvr-icon-forward"><i
