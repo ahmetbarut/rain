@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ahmetbarut\PhpRouter\Router;
@@ -13,6 +14,11 @@ use Closure;
 class Router
 {
 
+    /**
+     * All route parameters are store.
+     *
+     * @var \ahmetbarut\PhpRouter\Router\Route
+     */
     protected $route;
 
     /**
@@ -112,24 +118,30 @@ class Router
      *
      * @param string $uri
      * @param array|Closure $callback
-     * @return void
+     * @return static
      */
     public function post($uri, string|Closure $callback)
     {
         $this->addHandler("POST", $uri, $callback);
         $this->path = $uri;
+
+        return $this;
     }
 
     /**
      * HTTP DELETE yönteminde kullanılır
      *
      * @param string $uri
-     * @param array|Closure $callback
-     * @return void
+     * @param string|Closure $callback
+     * @return static
      */
-    public function delete($uri, array|Closure $callback)
+    public function delete($uri, string|Closure $callback)
     {
         $this->addHandler("DELETE", $uri, $callback);
+        $this->path = $uri;
+        
+        return $this;
+
     }
 
     /**
@@ -137,11 +149,15 @@ class Router
      *
      * @param string $uri
      * @param array|Closure $callback
-     * @return void
+     * @return static
      */
-    public function put($uri, array|Closure $callback)
+    public function put($uri, string|Closure $callback)
     {
         $this->addHandler("PUT", $uri, $callback);
+        $this->path = $uri;
+
+        return $this;
+
     }
 
     /**
@@ -149,11 +165,14 @@ class Router
      *
      * @param string $uri
      * @param array|Closure $callback
-     * @return void
+     * @return static
      */
     public function pacth($uri, array|Closure $callback)
     {
         $this->addHandler("PATCH", $uri, $callback);
+        $this->path = $uri;
+
+        return $this;
     }
 
     /**
@@ -167,12 +186,12 @@ class Router
     private function addHandler($method, $path, $callback)
     {
 
-        $this->router[$method][rtrim($path, "/") == "" ? "/" : rtrim($path, "/")] 
-                        = clone $this->route->addRoute($path, $callback, $this->namespace);
+        $this->router[$method][rtrim($path, "/") == "" ? "/" : rtrim($path, "/")]
+            = clone $this->route->addRoute($path, $callback, $this->namespace);
     }
 
     /**
-     * Rotaları çalıştırır
+     * Runs Router.
      * @return \ahmetbarut\PhpRouter\Reflection\Method
      */
     public function run()
@@ -183,28 +202,29 @@ class Router
             header("Method not allowed HTTP/1.1", response_code: 405);
             exit;
         }
-
-        // Gelen HTTP isteğine göre ilgili rotaları çağırır.
+        // Invokes the corresponding routes based on the incoming HTTP request.
         foreach ($this->router[Request::method()] as $callback) {
             $parameters = [];
 
             if (false !== strpos(Request::uri(), '?')) {
                 $callback->query = strstr(Request::uri(), '?');
             }
-            // Rotayı hazırlanan düzenli ifadeyle eşleştirmeye çalışır
+
+            // Tries to match the route with the prepared regular expression.
             if (preg_match("@" . $callback->regexpURL . "$@", $this->request->url, $parameters)) {
-                // ilk parametre url'in tamamı olduğu için ilk değeri silmek zorunda.
+
+                // Since the first parameter is the entire url, it has to delete the first value.
                 array_shift($parameters);
-                // Rotada tanımlı parametreleri tanımlı değişkenler için hazırlar ve döndürür.
-                // Örneğin: rotada /home/:user diye tanımlandı bunu "user" diye alır ve kaydeder.
+
+                // Prepares and returns the parameters defined in the route for the defined variables.
+                // For example: the route is defined as /home/:user, it takes it as "user" and saves it.
                 $routeParameters = rm_first_letter($callback->parameters);
 
-                // Yöntemin ve rotanın parametrelerini birleştirir.
+                // Combines the parameters of the method and the route.
                 $methodParameters = array_combine($routeParameters, $parameters);
 
-                // $callback eğer diziyse yani bu controller ve method oluyor
-                // ona göre aksiyon alıyor.
-
+                // $callback if it's an array so this is controller and method
+                // takes action accordingly.
                 if (is_string($callback->action)) {
                     return new Method($this->namespace, $callback->action, $methodParameters);
                 } else {
@@ -216,7 +236,13 @@ class Router
     }
 
 
-    public static function routes($name)
+    /**
+     * Get route with name.
+     *
+     * @param string $name
+     * @return false|string
+     */
+    public static function routes(string $name)
     {
         if (array_key_exists($name, (array) static::$nameList)) {
             return static::$nameList[$name];

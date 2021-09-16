@@ -1,7 +1,6 @@
 <?php
 
 use Core\Container\Container;
-use Core\View\Render;
 
 if (!function_exists('config')) {
 
@@ -49,7 +48,7 @@ if(!function_exists('__'))
  * Kapsayıcıdan istenen sınıf örneğini döndürür.
  *
  * @param string $abstract
- * @return void
+ * @return mixed
  */
 function app(string $abstract)
 {

@@ -1,8 +1,8 @@
 AOS.init();
-$(document).ready(function () {
+$(document).ready(function() {
     $("#loading").fadeOut();
     var first = $(".slider .slide_viewer .slide").first().css("display", "block");
-    $('.slider').each(function () {
+    $('.slider').each(function() {
         var $this = $(this);
         var $group = $this.find('.slide_group');
         var $slides = $this.find('.slide');
@@ -24,7 +24,7 @@ $(document).ready(function () {
             });
             $group.animate({
                 left: animateLeft
-            }, function () {
+            }, function() {
                 $slides.eq(currentIndex).css({
                     display: 'none'
                 });
@@ -41,7 +41,7 @@ $(document).ready(function () {
         function advance() {
             animateLeft = '-100%';
             clearTimeout(timeout);
-            timeout = setTimeout(function () {
+            timeout = setTimeout(function() {
                 if (currentIndex < ($slides.length - 1)) {
                     move(currentIndex + 1, animateLeft);
                 } else {
@@ -50,15 +50,15 @@ $(document).ready(function () {
             }, 4000);
         }
 
-        $('.slider').on('mouseover', function () {
+        $('.slider').on('mouseover', function() {
             clearTimeout(timeout);
         });
 
-        $('.slider').on('mouseout', function () {
+        $('.slider').on('mouseout', function() {
             advance();
         });
 
-        $('.next_btn').on('click', function () {
+        $('.next_btn').on('click', function() {
             animateLeft = '-100%';
 
             if (currentIndex < ($slides.length - 1)) {
@@ -68,7 +68,7 @@ $(document).ready(function () {
             }
         });
 
-        $('.previous_btn').on('click', function (e) {
+        $('.previous_btn').on('click', function(e) {
             e.preventDefault();
             animateLeft = '100%';
             if (currentIndex !== 0) {
@@ -83,8 +83,6 @@ $(document).ready(function () {
         advance();
     });
 });
-$(document).ready(function () {
+$(document).ready(function() {
     $('.jobs, .plaque, .building, .towns, #usagetype, #year select').select2();
-    // $("").select2();
 });
-

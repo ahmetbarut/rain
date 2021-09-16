@@ -1,3 +1,7 @@
+<?php
+
+use Core\Container\Container;
+?>
 <!DOCTYPE html>
 <html lang="<?= "App::getLocale()" ?>">
 
@@ -23,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="167x167" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" />
     <meta name="Copyright" content="<?= date('Y') ?> Sigorta Türk A.Ş.">
-    <title>@yield("title")</title>
+    <title><?=$title?></title>
 
     {!! $seo !!}
     <link rel="icon" type="image/png" href="<?= asset("/") ?>assets/favicons/favicon-32x32.png" sizes="32x32" />
@@ -199,7 +203,7 @@
                             </form>
                         </div>
                         <div class="ml-4 mt-4 mr-4">
-                            @include("pages.modals.contract")
+                            <?php app('view')->include("modals/contract");?>
                         </div>
                         <div class="text-center">
                             <button type="button" id="btnApp" class="btn btn-primary mb-3 hvr-icon-forward">
@@ -370,7 +374,8 @@
                                     <input name="identity" id="usernameforreg" maxlength="11" type="text" class="form-control btn-validation mb-1" placeholder="<?= __('all.identity_number') ?>" required="">
                                     <input id="phonenumforreg" name="phoneNumber" maxlength="14" type="text" class="form-control btn-validation" placeholder="<?= __('all.phone_number') ?>" required="">
                                 </div>
-                                @include("pages.modals.contract")
+                            <?php app('view')->include("modals/contract");?>
+
 
                             </div>
                             <div class="text-center mb-3">
@@ -420,9 +425,9 @@
     </nav>
     <!-- End Nav -->
     <div class="main">
-        
+
         <?php
-            app('view')->define('content');
+        app('view')->define('content');
         ?>
 
     </div>
@@ -465,12 +470,12 @@
                     <div class="col-sm-12 col-md-6 col-lg-3">
                         <h3 class="mt-3 mb-3"><?= __("all.corporate") ?></h3>
                         <ul class="links">
-                            <?php foreach($corporates->d as $corporate):?>
-                            <li>
-                                <a class="hvr-icon-forward" href="{{ route("corporates", $corporate["slug"]) }}"><span class="material-icons hvr-icon">chevron_right</span>
-                                    <?=$corporate['title']?></a>
-                            </li>
-                            <?php endforeach;?>
+                            <?php foreach ($corporates->d as $corporate) : ?>
+                                <li>
+                                    <a class="hvr-icon-forward" href="{{ route("corporates", $corporate["slug"]) }}"><span class="material-icons hvr-icon">chevron_right</span>
+                                        <?= $corporate['title'] ?></a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <!--/About-->
@@ -484,7 +489,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="hvr-icon-forward" href="{{ route("services" , __("all.slug_glass")) }}"><span class="material-icons hvr-icon">chevron_right</span> <?= __("all.controacted-glassrvices") ?>
+                                <a class="hvr-icon-forward" href="{{ route("services" , __("all.slug_glass")) }}"><span class="material-icons hvr-icon">chevron_right</span> <?= __("all.controacted-glass-services") ?>
                                 </a>
                             </li>
                             <li>
@@ -492,8 +497,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="hvr-icon-forward" href="{{ route("blog") }}"><span class="material-icons hvr-icon">chevron_right</span> <?= __("Blog") ?>
-?>                              </a>
+                                <a class="hvr-icon-forward" href="{{ route("blog") }}"><span class="material-icons hvr-icon">chevron_right</span>
+                                    <?= __("Blog") ?> </a>
                             </li>
                             <li>
                                 <a class="hvr-icon-forward" href="{{ route("vehicle.show", "kasko-deger-listesi") }}"><span class="material-icons hvr-icon">chevron_right</span> <?= __("all.insurance_value_list") ?>
@@ -535,7 +540,7 @@
                             <h3 class="mt-3 mb-3"><?= __("all.contact") ?></h3>
                             <ul class="links">
                                 <li>
-                                    <a class="hvr-icon-forward" href="tel:<?= $settings ["h_phone"] ?>">
+                                    <a class="hvr-icon-forward" href="tel:<?= $settings["h_phone"] ?>">
                                         <span class="material-icons hvr-icon">chevron_right</span>
                                         <?= $settings["m_phone"] ?> </a>
                                 </li>

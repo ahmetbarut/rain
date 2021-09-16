@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ahmetbarut\PhpRouter\Request;
 
+use ahmetbarut\PhpRouter\Request\Input\Delete;
 use ahmetbarut\PhpRouter\Request\Input\Put;
 
 class Request 
@@ -50,6 +51,13 @@ class Request
     public $put;
     
     /**
+     * Stored DELETE HTTP method data.
+     *
+     * @var \ahmetbarut\PhpRouter\Request\Input\Put
+     */
+    public $delete;
+    
+    /**
      * Stored request url.
      *
      * @var string
@@ -81,10 +89,12 @@ class Request
         $this->session = $_SESSION;
         
         $this->put = new Put($this);
+
+        $this->delete = new Delete($this);
         
         $this->method = $this->method();
         
-        $this->url = static::uri();
+        $this->url = $this->uri();
 
     }
     

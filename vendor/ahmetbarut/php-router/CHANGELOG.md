@@ -1,8 +1,12 @@
+- [16.09](#1609)
 - [11.09](#1109)
 - [08.10](#0810)
 - [08.09](#0809)
 - [07.09](#0709)
 - [05.09](#0509)
+# 16.09
+- Added HTTP DELETE support.
+- Added Docs
 # 11.09
 - Added dependency injection support. It can only be used for `__construct` without requiring mandatory parameters. It continues to be developed.
   - [Injection.php](src/Reflection/Injection.php)

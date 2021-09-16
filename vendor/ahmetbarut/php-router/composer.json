@@ -23,7 +23,6 @@
     }],
     "minimum-stability": "dev",
     "require-dev": {
-        "symfony/var-dumper": "*",
-        "symfony/http-foundation": "6.0.x-dev"
+        "symfony/var-dumper": "*"
     }
 }

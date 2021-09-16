@@ -68,7 +68,6 @@ class Component extends Render
     {
         $this->component[$this->section] = ob_get_clean();
 
-        $this->component[$this->section];
         echo $this->render($this->layout, $this->vars);
     }
 
@@ -80,6 +79,12 @@ class Component extends Render
      */
     public function define(string $define)
     {
-        $this->component[$define];
+        echo $this->component[$define];
     }
+
+    public function include($page)
+    {
+        include config('view.path') . "/{$page}.php";
+    }
+    
 }

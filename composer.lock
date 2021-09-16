@@ -12,16 +12,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-router.git",
-                "reference": "4c4a663b972abd6794b395649e95ca9a4173513c"
+                "reference": "4565b184b3b8e7472679f0ddadb95726cffedb1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/4c4a663b972abd6794b395649e95ca9a4173513c",
-                "reference": "4c4a663b972abd6794b395649e95ca9a4173513c",
+                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/4565b184b3b8e7472679f0ddadb95726cffedb1b",
+                "reference": "4565b184b3b8e7472679f0ddadb95726cffedb1b",
                 "shasum": ""
             },
             "require-dev": {
-                "symfony/http-foundation": "6.0.x-dev",
                 "symfony/var-dumper": "*"
             },
             "default-branch": true,
@@ -49,7 +48,7 @@
                 "issues": "https://github.com/ahmetbarut/php-router/issues",
                 "source": "https://github.com/ahmetbarut/php-router/tree/master"
             },
-            "time": "2021-09-15T06:49:44+00:00"
+            "time": "2021-09-16T01:55:53+00:00"
         },
         {
             "name": "ahmetbarut/translation",
@@ -57,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-translation.git",
-                "reference": "246baaa80c9da8c2f2754a208150d6f96fca81f2"
+                "reference": "e6c529abd2bfed712c11b557c7587846b8563372"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/246baaa80c9da8c2f2754a208150d6f96fca81f2",
-                "reference": "246baaa80c9da8c2f2754a208150d6f96fca81f2",
+                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/e6c529abd2bfed712c11b557c7587846b8563372",
+                "reference": "e6c529abd2bfed712c11b557c7587846b8563372",
                 "shasum": ""
             },
             "require-dev": {
@@ -91,9 +90,9 @@
             "description": "Çoklu dil kullanan web sitesinde birden fazla dil ve kullanım kolaylığı sunuyor.",
             "support": {
                 "issues": "https://github.com/ahmetbarut/php-translation/issues",
-                "source": "https://github.com/ahmetbarut/php-translation/tree/v1.0.2"
+                "source": "https://github.com/ahmetbarut/php-translation/tree/v1.0.3"
             },
-            "time": "2021-09-15T11:58:06+00:00"
+            "time": "2021-09-16T06:40:01+00:00"
         },
         {
             "name": "psr/container",

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4021f8a8d958e045813cce09453acd236a52bc7d',
+        'reference' => 'abe3560a91d7dd5a614e3d530ba437f38802d993',
         'name' => 'sigortaturk/mvc',
         'dev' => true,
     ),
@@ -18,7 +18,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '4c4a663b972abd6794b395649e95ca9a4173513c',
+            'reference' => '4565b184b3b8e7472679f0ddadb95726cffedb1b',
             'dev_requirement' => false,
         ),
         'ahmetbarut/translation' => array(
@@ -29,7 +29,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '246baaa80c9da8c2f2754a208150d6f96fca81f2',
+            'reference' => 'e6c529abd2bfed712c11b557c7587846b8563372',
             'dev_requirement' => false,
         ),
         'psr/container' => array(
@@ -49,7 +49,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4021f8a8d958e045813cce09453acd236a52bc7d',
+            'reference' => 'abe3560a91d7dd5a614e3d530ba437f38802d993',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

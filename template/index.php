@@ -1,4 +1,7 @@
-<?php app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates'))->startSection('content');  ?>
+
+<?php 
+    $title = "Anasayfa";
+app('view')->extends('layouts/home', compact('menus', 'settings', 'corporates', 'title'))->startSection('content');  ?>
 
 <div class="main">
     <script>
@@ -182,7 +185,7 @@
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i>
                     </button>
                 </div>
-                @include("pages.modals.off_travel")
+                <?php app('view')->include("modals/off_travel");?>
             </div>
         </div>
     </div>
@@ -193,7 +196,7 @@
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i>
                     </button>
                 </div>
-                @include("pages.modals.off_casco")
+                <?php app('view')->include("modals/off_casco");?>
             </div>
         </div>
     </div>
@@ -204,7 +207,8 @@
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i>
                     </button>
                 </div>
-                @include("pages.modals.off_traffic")
+                <?php app('view')->include("modals/off_traffic");?>
+
             </div>
         </div>
     </div>
@@ -214,8 +218,7 @@
                 <div>
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i></button>
                 </div>
-
-                @include("pages.modals.off_home")
+                <?php app('view')->include("modals/off_home");?>
 
             </div>
         </div>
@@ -227,7 +230,7 @@
                     <button class="btn btn-primary btn-fab close" data-dismiss="modal" aria-label="Close"><i class="material-icons">clear</i></button>
                 </div>
 
-                @include("pages.modals.off_personalaccident")
+                <?php app('view')->include("modals/off_personalaccident");?>
 
             </div>
         </div>

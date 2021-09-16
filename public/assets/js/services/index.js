@@ -1,12 +1,12 @@
 var html = '';
 $.ajax({
     type: 'POST',
-    url: "/" + language + "/getSlider",
+    url: "/getSlider",
     data: {
         _token: $("meta[name=csrf-token]").attr("content")
     },
-    success: function (sliders) {
-        sliders.d.forEach(element => {
+    success: function(sliders) {
+        JSON.parse(sliders).map(function(element) {
             html = html + `
                  <div class="slide" style="margin-top: -150px;">
                     <div class="row align-items-center m-2">
@@ -37,7 +37,7 @@ $.ajax({
     }
 
 }).then(() => {
-    $('.slider').each(function () {
+    $('.slider').each(function() {
         var $this = $(this);
         var $group = $this.find('.slide_group');
         var $slides = $this.find('.slide');
@@ -60,7 +60,7 @@ $.ajax({
             });
             $group.animate({
                 left: animateLeft
-            }, function () {
+            }, function() {
                 $slides.eq(currentIndex).css({
                     display: 'none'
                 });
@@ -77,7 +77,7 @@ $.ajax({
 
         function advance() {
             clearTimeout(timeout);
-            timeout = setTimeout(function () {
+            timeout = setTimeout(function() {
                 if (currentIndex < ($slides.length - 1)) {
                     move(currentIndex + 1);
                 } else {
@@ -86,15 +86,15 @@ $.ajax({
             }, 4000);
         }
 
-        $('.slider').on('mouseover', function () {
+        $('.slider').on('mouseover', function() {
             clearTimeout(timeout);
         });
 
-        $('.slider').on('mouseout', function () {
+        $('.slider').on('mouseout', function() {
             advance();
         });
 
-        $('.next_btn').on('click', function () {
+        $('.next_btn').on('click', function() {
             if (currentIndex < ($slides.length - 1)) {
                 move(currentIndex + 1);
             } else {
@@ -102,7 +102,7 @@ $.ajax({
             }
         });
 
-        $('.previous_btn').on('click', function () {
+        $('.previous_btn').on('click', function() {
             if (currentIndex !== 0) {
                 move(currentIndex - 1);
             } else if (currentIndex === 0) {
@@ -123,13 +123,13 @@ var url = {
     "en": "post",
 }
 $.ajax({
-    url: "/" + language + "/getBlogs",
+    url: "/getBlogs",
     method: "POST",
     data: {
         _token: $("meta[name=csrf-token]").attr("content")
     },
-    success: function (response) {
-        response.map(function (blog) {
+    success: function(response) {
+        JSON.parse(response).map(function(blog) {
             $("#blogs").prepend(`
                        <div class="col-lg-4 col-md-6">
                             <div class="blog-3 aos-init aos-animate" data-aos="fade-up">
