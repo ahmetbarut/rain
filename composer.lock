@@ -12,15 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-router.git",
-                "reference": "4565b184b3b8e7472679f0ddadb95726cffedb1b"
+                "reference": "31bbdb8a7194447c28494ed8e14e341b77dddee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/4565b184b3b8e7472679f0ddadb95726cffedb1b",
-                "reference": "4565b184b3b8e7472679f0ddadb95726cffedb1b",
+                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/31bbdb8a7194447c28494ed8e14e341b77dddee0",
+                "reference": "31bbdb8a7194447c28494ed8e14e341b77dddee0",
                 "shasum": ""
             },
             "require-dev": {
+                "symfony/http-foundation": "6.0.x-dev",
                 "symfony/var-dumper": "*"
             },
             "default-branch": true,
@@ -48,7 +49,7 @@
                 "issues": "https://github.com/ahmetbarut/php-router/issues",
                 "source": "https://github.com/ahmetbarut/php-router/tree/master"
             },
-            "time": "2021-09-16T01:55:53+00:00"
+            "time": "2021-09-17T08:17:30+00:00"
         },
         {
             "name": "ahmetbarut/translation",

@@ -57,7 +57,7 @@
         <div class="container">
             <div class="navbar-translate">
                 <div class="mr-md-5">
-                    <a href="<?= ('home') ?>"><img width="150" height="50" class="logo" src="<?= asset("assets") ?>/images/logo/sigortaturklogo.png" alt="Sigorta Türk Logo"></a>
+                    <a href="<?= path('home') ?>"><img width="150" height="50" class="logo" src="<?= asset("assets") ?>/images/logo/sigortaturklogo.png" alt="Sigorta Türk Logo"></a>
                 </div>
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="text-primary center-align mr-2 tel display-none2" id="tel">
@@ -82,7 +82,7 @@
                 <ul class="navbar-nav mr-auto">
                     <?php foreach ($menus as $menu) { ?>
                         <li class="dropdown nav-item">
-                            <a href="<?php if ($menu['slug'] == __('all.slug_contact')) { ?><?= asset('/' . $menu['slug']) ?><?php } else { ?> <?= $menu['slug'] ?> <?php } ?>" class="
+                            <a href="<?php if ($menu['slug'] == __('all.slug_contact')) { ?><?= asset($menu['slug']) ?><?php } else { ?> <?= $menu['slug'] ?> <?php } ?>" class="
                         <?php if (isset($menu['sub'])) {
                             echo "dropdown-toggle";
                         };
