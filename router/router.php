@@ -6,3 +6,4 @@ $router->post('/getSlider', "ServicesController@slider");
 $router->post('/getBlogs', "ServicesController@blog");
 
 $router->get('/urunler/:urun', "ProductsController@products")->name('products');
+$router->get('/teklif/:urun', "OrdersController@orders")->name('orders');

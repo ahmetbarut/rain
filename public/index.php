@@ -1,5 +1,6 @@
 <?php
 
+use Core\Auth\User;
 use Core\Curl\Client;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
