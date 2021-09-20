@@ -19,3 +19,13 @@ $router->post('/getSlider', "ServicesController@slider");
 $router->post('/getBlogs', "ServicesController@blog");
 $router->post('/getCity', "ServicesController@city");
 $router->post('/getJobs', "ServicesController@jobs");
+
+
+/*
+|----------------------------------------------------------------
+|                          API POST   
+|---------------------------------------------------------------- 
+*/
+
+$router->post('/product/traffic', 'Products\\TrafficController@validate')->name('product.traffic.validate');
+// $router->post('/product/traffic', 'ProductsController@')->name('product.traffic');

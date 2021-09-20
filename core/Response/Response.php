@@ -13,7 +13,7 @@ class Response
     public function json(array $data, $code = 200)
     {
         http_response_code($code);
-        return json_encode($data);
+        echo json_encode($data);
     }
   
 }

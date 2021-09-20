@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="text-center">
-        <button type="button" onclick="validateForm('form[name=frm_off_traffic]','traffic','<?= ("offer.traffic") ?>')" class="btn btn-primary mb-3 hvr-icon-forward"><i class="material-icons hvr-icon">chevron_right</i> <?= __("all.get_now_offer") ?>
+        <button type="button" onclick="validateForm('form[name=frm_off_traffic]','traffic','<?php echo path('product.traffic.validate') ?>')" class="btn btn-primary mb-3 hvr-icon-forward"><i class="material-icons hvr-icon">chevron_right</i> <?= __("all.get_now_offer") ?>
         </button>
     </div>
 </form>

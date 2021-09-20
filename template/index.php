@@ -1,6 +1,6 @@
 <?php
-app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');  ?>
-
+app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');  
+?>
 <div class="main">
     <script>
         var sliderforhome = 1;
@@ -234,4 +234,5 @@ app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('con
         </div>
     </div>
 </div>
-<?php app('view')->stopSection() ?>
+
+<?php app('view')->stopSection(); ?>

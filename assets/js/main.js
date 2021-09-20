@@ -223,16 +223,15 @@ function TCKNo(tcno) {
 function validateForm(selector, uri, sendForm) {
     $("#loading").fadeIn();
     $(".alert").remove();
-    var contract1 = $
     $.ajax({
         method: "POST",
-        url: "/" + language + "/validation/" + uri,
+        url: "/product/" + uri,
         data: $(selector).serialize(),
         success: function(response) {
-            if (response.status === false) {
+            if (JSON.parse(response).status === false) {
                 $("#loading").fadeOut();
 
-                response.errors.map(function(error) {
+                JSON.parse(response).errors.map(function(error) {
                     $(selector + " .form-control[name=" + error.rule + "], .form-check-input[name=" + error.rule + "]").parent().append(`
                      <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
                            ${error.message}
@@ -242,7 +241,7 @@ function validateForm(selector, uri, sendForm) {
                      </div>
                 `);
                 });
-            } else {
+            } else if (resonse.status === true) {
                 $(selector).attr("method", "POST");
                 $(selector).attr("action", sendForm);
                 $(selector).submit();
