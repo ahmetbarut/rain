@@ -1,12 +1,10 @@
 <?php
 
-use Core\Auth\User;
 use Core\Curl\Client;
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once './vendor/autoload.php';
 
 $container = new \Core\Container\Container();
-
 $container->set("auth", new \Core\Auth\User());
 $container->set("app", new \Core\App());
 $container->set("config", new \Core\Config\App);
@@ -21,6 +19,9 @@ $container->set(
         )
     )
 );
+
+$container->set('validation', new \ahmetbarut\Validation\Validate(config('validation.rules')));
+
 $client = new Client();
 $settings = $client->get("/common/general/generals", ["lang" => "tr"])->d;
 

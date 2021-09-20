@@ -46,7 +46,7 @@
     <script>
         $.ajax({
             method: "POST",
-            url: "/" + language + "/getCity",
+            url: "/getCity",
             data:{
                 _token: $("meta[name=csrf-token]").attr("content"),
             },
@@ -61,7 +61,7 @@
         });
         $.ajax({
             method: "POST",
-            url: "/" + language + "/getJobs",
+            url: "/getJobs",
             data:{
                 _token: $("meta[name=csrf-token]").attr("content"),
             },

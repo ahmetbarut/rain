@@ -25,8 +25,26 @@ class ServicesController extends BaseController
     public function blog(Client $client, Response $response): void
     {
         if ($client->get("/common/blog/latest", ["lang" => "tr", "src" => 3])->s === 1) {
-            // dd($client->get("/common/blog/latest", ["lang" => "tr", "src" => 3])->d);
+
             echo $response->json($client->get("/common/blog/latest", ["lang" => "tr", "src" => 3])->d);
         }
+    }
+
+    public function jobs(Client $client, Response $response)
+    {
+        echo($response->json(
+            [
+                "data" => $client->get("/common/jobs", ["lang" => "tr", "src" => 4])->d,
+                "key" => __("all.jobs_select")
+            ]
+        ));
+    }
+
+    public function city(Client $client, Response $response)
+    {
+        echo $response->json([
+            "data" => array_reverse($client->get("/common/city")->d),
+            "key" => __("all.select_plaque")
+        ]);
     }
 }

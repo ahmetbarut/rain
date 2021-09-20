@@ -228,8 +228,8 @@
     <script>
         $(document).ready(function() {
             $.ajax({
-                method: "POST",
-                url: "/" + language + "/getCity",
+                method: "",
+                url: "/getCitys",
                 data: {
                     _token: $("meta[name=csrf-token]").attr("content"),
                 },
@@ -244,7 +244,7 @@
             });
             $.ajax({
                 method: "POST",
-                url: "/" + language + "/getJobs",
+                url: "/getJobs",
                 data: {
                     _token: $("meta[name=csrf-token]").attr("content"),
                 },

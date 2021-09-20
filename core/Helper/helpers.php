@@ -9,34 +9,28 @@ if (!function_exists('config')) {
      * Bu yardımcı fonksiyon config/ içindeki bütün yapılandırma dosyalarına erişebiliyor.
      *
      * @param string $key
-     * @return Core\Container\Container
+     * @return mixed
      */
-    function config($key)
+    function config($key): mixed
     {
         return Container::instance("config")->get($key);
     }
 }
 
-if(!function_exists('asset'))
-{
+if (!function_exists('asset')) {
     /**
      * public dizinini döndürür.
      *
      * @param string $asset
      * @return void
      */
-    function asset($asset = null) {
-
-        $url = "";
-        if(array_key_exists('SERVER_PORT', $_SERVER)){
-            $url = ':' .  $_SERVER['SERVER_PORT']  .  "/" . $asset;
-        }
-        return trim(config('app.app_url') . $url, '/');
+    function asset($asset = null)
+    {
+        return trim(config('app.app_url') . "/" . $asset, '/');
     }
 }
 
-if(!function_exists('__'))
-{
+if (!function_exists('__')) {
     /**
      * Çeviri dosyalarındaki değerlere erişir.
      *

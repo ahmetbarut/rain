@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd723283253eda1ae8881642cc270934",
+    "content-hash": "3dcfa0498a0a628565ffcfdca113709e",
     "packages": [
         {
             "name": "ahmetbarut/php-router",
@@ -94,6 +94,50 @@
                 "source": "https://github.com/ahmetbarut/php-translation/tree/v1.0.3"
             },
             "time": "2021-09-16T06:40:01+00:00"
+        },
+        {
+            "name": "ahmetbarut/validation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ahmetbarut/validation.git",
+                "reference": "ad25e57e28f4e95fbae636b23b44b9cdf33b34eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ahmetbarut/validation/zipball/ad25e57e28f4e95fbae636b23b44b9cdf33b34eb",
+                "reference": "ad25e57e28f4e95fbae636b23b44b9cdf33b34eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.23"
+            },
+            "default-branch": true,
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "ahmetbarut\\Validation\\": "src/"
+                },
+                "files": [
+                    "src/Helper/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmet Barut",
+                    "email": "ahmetbarut588@gmail.com"
+                }
+            ],
+            "description": "Php form doğrulama",
+            "support": {
+                "issues": "https://github.com/ahmetbarut/validation/issues",
+                "source": "https://github.com/ahmetbarut/validation/tree/v1.0.0"
+            },
+            "time": "2021-09-18T20:58:51+00:00"
         },
         {
             "name": "psr/container",
@@ -327,6 +371,7 @@
         "ahmetbarut/php-router": 20,
         "psr/container": 20,
         "ahmetbarut/translation": 20,
+        "ahmetbarut/validation": 20,
         "symfony/var-dumper": 20
     },
     "prefer-stable": false,
