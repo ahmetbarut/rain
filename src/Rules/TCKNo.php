@@ -18,7 +18,7 @@ class TCKNo implements Rule
      */
     public function check($attr, $value): bool
     {
-        return true;
+        return TCKnoCheck($value);
     }
 
     /**

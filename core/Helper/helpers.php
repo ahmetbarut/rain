@@ -53,3 +53,34 @@ function app(string $abstract)
 {
     return Container::instance($abstract);
 }
+
+
+/**
+ * T.C kimlik numarasını kontrol eder.
+ * @param $TCK
+ * @return bool
+ */
+function TCKnoCheck($TCK): bool
+{
+    if (strlen($TCK) != 11 || $TCK[0] == 0) {
+        return false;
+    }else{
+        $first = 0;
+        $old = 0;
+        for ($i = 0 ; $i < 9; $i++)
+        {
+            if ($i%2 == 0) {
+                $first += $TCK[$i];
+            }else {
+                $old += $TCK[$i];
+            }
+        }
+        $c1 = (($first) * 7 - ($old)) %10;
+        $c2 = ($first + $old + $c1) %10 ;
+            /* 10. karakter */          /* 11. karakter */
+        if (substr($TCK,-2,1) == $c1 && substr($TCK,-1,1) == $c2) {
+            return true;
+        }
+    }
+    return false;
+}

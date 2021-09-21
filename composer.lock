@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-router.git",
-                "reference": "31bbdb8a7194447c28494ed8e14e341b77dddee0"
+                "reference": "f31697d412d1f01d4c16e40ec1a80e8a3b1c5c67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/31bbdb8a7194447c28494ed8e14e341b77dddee0",
-                "reference": "31bbdb8a7194447c28494ed8e14e341b77dddee0",
+                "url": "https://api.github.com/repos/ahmetbarut/php-router/zipball/f31697d412d1f01d4c16e40ec1a80e8a3b1c5c67",
+                "reference": "f31697d412d1f01d4c16e40ec1a80e8a3b1c5c67",
                 "shasum": ""
             },
             "require-dev": {
@@ -49,7 +49,7 @@
                 "issues": "https://github.com/ahmetbarut/php-router/issues",
                 "source": "https://github.com/ahmetbarut/php-router/tree/master"
             },
-            "time": "2021-09-17T08:17:30+00:00"
+            "time": "2021-09-21T07:44:32+00:00"
         },
         {
             "name": "ahmetbarut/translation",
@@ -101,12 +101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/validation.git",
-                "reference": "ad25e57e28f4e95fbae636b23b44b9cdf33b34eb"
+                "reference": "c104be757b750ad48e02762f8abfe4eee1537b5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/validation/zipball/ad25e57e28f4e95fbae636b23b44b9cdf33b34eb",
-                "reference": "ad25e57e28f4e95fbae636b23b44b9cdf33b34eb",
+                "url": "https://api.github.com/repos/ahmetbarut/validation/zipball/c104be757b750ad48e02762f8abfe4eee1537b5e",
+                "reference": "c104be757b750ad48e02762f8abfe4eee1537b5e",
                 "shasum": ""
             },
             "require": {
@@ -135,9 +135,9 @@
             "description": "Php form doğrulama",
             "support": {
                 "issues": "https://github.com/ahmetbarut/validation/issues",
-                "source": "https://github.com/ahmetbarut/validation/tree/v1.0.0"
+                "source": "https://github.com/ahmetbarut/validation/tree/v1.0.3"
             },
-            "time": "2021-09-18T20:58:51+00:00"
+            "time": "2021-09-21T13:57:37+00:00"
         },
         {
             "name": "psr/container",

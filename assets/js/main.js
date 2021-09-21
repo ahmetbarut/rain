@@ -230,22 +230,24 @@ function validateForm(selector, uri, sendForm) {
         success: function(response) {
             if (JSON.parse(response).status === false) {
                 $("#loading").fadeOut();
-
-                JSON.parse(response).errors.map(function(error) {
-                    $(selector + " .form-control[name=" + error.rule + "], .form-check-input[name=" + error.rule + "]").parent().append(`
-                     <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
-                           ${error.message}
-                         <button type="button" class="d-none" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                         </button>
-                     </div>
-                `);
-                });
-            } else if (resonse.status === true) {
                 $(selector).attr("method", "POST");
                 $(selector).attr("action", sendForm);
                 $(selector).submit();
             }
+        },
+        error: function(xhr) {
+            JSON.parse(xhr.responseText).errors.map(function(error) {
+                $("#loading").fadeOut();
+                $(selector + " .form-control[name=" + error.rule + "], .form-check-input[name=" + error.rule + "]").parent().append(`
+                 <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                       ${error.message}
+                     <button type="button" class="d-none" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+            `);
+            });
         }
+
     });
 }
