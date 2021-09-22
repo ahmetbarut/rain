@@ -11,17 +11,17 @@ class App
      *
      * @return void
      */
-    public function loadRouter(){
-        
+    public function loadRouter()
+    {
+
         if (file_exists(dirname(__DIR__) . '/config/router.php')) {
-            include dirname(__DIR__) . "/config/router.php" ;           
+            include dirname(__DIR__) . "/config/router.php";
 
-            include config('router.path') . '/router.php';
-
-            $router->run();
-        }else {
+            $router = include config('router.path') . '/router.php';
+            
+            $router();
+        } else {
             throw new \Exception('config/router.php not found');
         }
     }
-
 }

@@ -9,6 +9,11 @@ $container->set("auth", new \Core\Auth\User());
 $container->set("app", new \Core\App());
 $container->set("config", new \Core\Config\App);
 $container->set("view", new \Core\View\Render());
+$container->set("router", new ahmetbarut\PhpRouter\Router\Router([
+    "namespace" => "App\\Controller\\",
+    "debug" => true,
+]));
+
 
 $container->set(
     "translation",

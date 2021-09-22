@@ -7,9 +7,9 @@ use Core\Http\Request;
 
 class Put implements InputInterface
 {
-    public $data;
+    public object $data;
 
-    protected $stream;
+    protected mixed $stream;
     
     public function __construct(Request $request)
     {
@@ -33,9 +33,9 @@ class Put implements InputInterface
     /**
      * Read PUT stream
      *
-     * @return string
+     * @return static
      */
-    public function read()
+    public function read(): Put
     {
         $this->data = (object) json_decode(fread($this->stream, 10000000)) ;
 

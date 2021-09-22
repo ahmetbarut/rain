@@ -2,7 +2,7 @@
 
 use ahmetbarut\PhpRouter\Router\Router;
 
-/**
+/*
  |------------------------------------------------------------
  |                       router.php
  |------------------------------------------------------------
@@ -10,10 +10,6 @@ use ahmetbarut\PhpRouter\Router\Router;
  |
  * @source https://github.com/ahmetbarut/php-router İlgili paketin kaynağı
  */
-$router = new Router([
-    "namespace" => "App\\Controller\\",
-    "debug" => true,
-]);
 
 
 return [

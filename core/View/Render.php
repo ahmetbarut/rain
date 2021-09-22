@@ -5,37 +5,42 @@ namespace Core\View;
 class Render extends Component
 {
 
-    public static $shared;
+    /**
+     * Bütün şablonlara paylaşılan değişkenler.
+     *
+     * @var array
+     */
+    public static array $shared;
 
     /**
      * Denetleyici tarafından gönderilen değişkenleri depolar.
      *
      * @var array
      */
-    public $data;
+    public array $data;
 
     /**
      * Yüklenmesi istenen görünümü ve değişkenleri hazırlar.
      *
      * @param string $view
      * @param array $data
-     * @return void
+     * @return static
      */
-    public function render($view, $data = null)
+    public function render(string $view, array $data = null)
     {
         if (null !== $data) {
             $this->data = $data;
         }
         
-        $this->load($view, $data);
+        return $this->load($view, $data);
     }
 
     /**
      * Görünümleri yüklemek için dizini alması gerekir.
      *
-     * @return Core\Container\Container
+     * @return string
      */
-    public function getConfigPath()
+    public function getConfigPath(): string 
     {
         return config('view.path');
     }
@@ -45,9 +50,9 @@ class Render extends Component
      *
      * @param string $view
      * @param array $data
-     * @return void
+     * @return static
      */
-    public function load($view, $data = null)
+    public function load(string $view, array $data = null)
     {
         if (!is_null($data)) {
             extract($data, EXTR_OVERWRITE);
@@ -58,5 +63,11 @@ class Render extends Component
         }
 
         require_once $this->getConfigPath() . '/' . $view . ".php";
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->render($this->layout, $this->vars);
     }
 }

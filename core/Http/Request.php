@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Core\Http;
 
-use Core\Http\Input\Put;
-
 class Request 
 {
     /**
@@ -12,42 +10,42 @@ class Request
      *
      * @var array
      */
-    public $get;
+    public array $get;
 
     /**
      * Stored $_POST data.
      *
      * @var array
      */
-    public $post;
+    public array $post;
 
     /**
      * Stored $_FILES data.
      *
      * @var array
      */
-    public $files;
+    public array $files;
     
     /**
      * Stored $_COOKIE data.
      *
      * @var array
      */
-    public $cookie;
+    public array $cookie;
     
     /**
      * Stored $_SESSION data.
      *
      * @var array
      */
-    public $session;
+    public array $session;
 
     /**
      * Stored PUT HTTP method data.
      *
-     * @var \Core\Http\Request\Input\Put
+     * @var \Core\Http\Input\Put
      */
-    public $put;
+    public \Core\Http\Input\Put $put;
     
     /**
      * Stored request url.
@@ -62,7 +60,12 @@ class Request
      */
     public $method;
     
-    public $validation;
+    /**
+     * Stored input request data.
+     *
+     * @var ahmetbarut\Validation\Validate
+     */
+    public \ahmetbarut\Validation\Validate $validation;
     /**
      * Starting Request instance.
      */
@@ -81,7 +84,7 @@ class Request
         
         $this->session = $_SESSION;
         
-        $this->put = new Put($this);
+        $this->put = new \Core\Http\Input\Put($this);
 
         $this->validation = app('validation')->setFields($_REQUEST);
         

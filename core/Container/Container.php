@@ -3,6 +3,7 @@
 namespace Core\Container;
 
 use ahmetbarut\PhpRouter\Exception\NotRouteFound;
+use Closure;
 use Psr\Container\ContainerInterface;
 
 class Container implements ContainerInterface 
@@ -39,9 +40,9 @@ class Container implements ContainerInterface
         if (isset(static::$resolved[$id])) {
             return static::$resolved[$id];
         }
-
+        
         $callback = $this->entries[$id] = $id;
-        if ($callback instanceof \Closure) {
+        if (is_callable($callback)) {
             $callback = $callback($this);
         }
         static::$resolved[$id] = $callback;
@@ -76,28 +77,13 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Belirtilen sınıfın yansımasını getirir.
+     * Return resolved container.
      *
-     * @param string $id
-     * @return \ReflectionClass $reflection
+     * @param string $key
+     * @return self
      */
-    public function getReflector($id)
+    public static function instance(string $key)
     {
-        try {
-            $reflection = new \ReflectionClass($this->entries[$id]);
-        }catch (\ReflectionException $th)
-        {
-            die(sprintf("%s %s %s", $th->getMessage(), $th->getLine(), $th->getFile()));
-        }
-
-        return $reflection;
-    }
-
-    public static function __callStatic($name, $arguments)
-    {
-        if("instance" === $name)
-        {
-            return (new static)->get(current($arguments));
-        }
+        return (new self)->get($key);
     }
 }

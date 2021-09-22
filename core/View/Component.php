@@ -9,28 +9,28 @@ class Component
      *
      * @var array
      */
-    public $component = [];
+    public array $component = [];
 
     /**
      * "extends" yöntemiyle dahil edilen dosyayı tutar.
      *
      * @var string
      */
-    public $layout;
+    public string $layout;
 
     /**
      * Aktif dosyayı tutar.
      *
      * @var string
      */
-    public $section;
+    public string $section;
 
     /**
      * Görünüm tarafına iletilen değişkenleri tutar.
      *
      * @var array
      */
-    private $vars = [];
+    protected array $vars = [];
 
     /**
      * Ana bileşeni çağırır. 
@@ -39,7 +39,7 @@ class Component
      * @param array $data gönderilmesi istenen değişkenler.
      * @return static
      */
-    public function extends($layout, $data = null)
+    public function extends(string $layout, array $data = null)
     {
         $this->layout = $layout;
         $this->vars = $data;
@@ -52,7 +52,7 @@ class Component
      * @param string $section
      * @return void
      */
-    public function startSection($section)
+    public function startSection(string $section): void
     {
         $this->section = $section;
         $this->component[$section] = "";
@@ -65,13 +65,13 @@ class Component
      * 
      * @return void
      */
-    public function stopSection()
+    public function stopSection(): void
     {
         $this->component[$this->section] = ob_get_clean();
 
-        echo (new Render)->render($this->layout, $this->vars);
+        (new Render)->render($this->layout, $this->vars);
     }
-
+    
     /**
      * Bileşen adı tanımlamayı sağlar. Bu, başlık veya içerik adı olabilir.
      *
@@ -83,7 +83,7 @@ class Component
         echo $this->component[$define];
     }
 
-    public function include($page)
+    public function include(string $page)
     {
         require_once config('view.path') . "/{$page}.php";
     }

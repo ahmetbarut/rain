@@ -9,7 +9,8 @@
         "ahmetbarut/validation": "dev-master"
     },
     "require-dev": {
-        "symfony/var-dumper": "6.0.x-dev"
+        "symfony/var-dumper": "6.0.x-dev",
+        "phpstan/phpstan": "1.0.x-dev"
     },
     "autoload": {
         "psr-4": {
