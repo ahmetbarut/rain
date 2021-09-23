@@ -10,7 +10,8 @@
     },
     "require-dev": {
         "symfony/var-dumper": "6.0.x-dev",
-        "phpstan/phpstan": "1.0.x-dev"
+        "phpstan/phpstan": "1.0.x-dev",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {

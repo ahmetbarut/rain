@@ -2,6 +2,8 @@
 
 namespace Core\Response;
 
+use Core\Http\Request;
+
 class Response
 {
     public array $data;
@@ -15,5 +17,15 @@ class Response
     {
         http_response_code($code);
         echo json_encode($data);
+        exit;
+    }
+
+    public function redirect(string $to = "", $code = 302)
+    {
+        http_response_code($code);
+
+        header(sprintf("Location: %s/%s", (new Request)->referer(), $to));
+        
+        exit;
     }
 }

@@ -125,4 +125,14 @@ class Request
         $scheme = isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] :'http';
         return  $scheme . '://' . trim($_SERVER['HTTP_HOST'], '/');
     }
+
+    public function ajax(): bool
+    {
+        return $_SERVER["HTTP_X_REQUESTED_WITH"] === 'XMLHttpRequest';
+    }
+
+    public function referer()
+    {
+        return $_SERVER['HTTP_REFERER'];
+    }
 }

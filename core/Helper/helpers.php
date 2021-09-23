@@ -9,7 +9,7 @@ if (!function_exists('config')) {
      * Bu yardımcı fonksiyon config/ içindeki bütün yapılandırma dosyalarına erişebiliyor.
      *
      * @param string $key
-     * @return string
+     * @return mixed
      */
     function config($key)
     {

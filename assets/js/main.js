@@ -228,7 +228,7 @@ function validateForm(selector, uri, sendForm) {
         url: "/product/" + uri,
         data: $(selector).serialize(),
         success: function(response) {
-            if (JSON.parse(response).status === false) {
+            if (JSON.parse(response).status === true) {
                 $("#loading").fadeOut();
                 $(selector).attr("method", "POST");
                 $(selector).attr("action", sendForm);

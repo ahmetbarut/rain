@@ -3,7 +3,6 @@
 use Core\Curl\Client;
 
 require_once './vendor/autoload.php';
-
 $container = new \Core\Container\Container();
 $container->set("auth", new \Core\Auth\User());
 $container->set("app", new \Core\App());
@@ -28,7 +27,11 @@ $container->set(
 $container->set('validation', new \ahmetbarut\Validation\Validate(config('validation.rules')));
 
 $client = new Client();
-$settings = $client->get("/common/general/generals", ["lang" => "tr"])->d;
+try {
+    $settings = $client->get("/common/general/generals", ["lang" => "tr"])->d;
+} catch (\Throwable $th) {
+    $settings = [];
+}
 
 $container->get('view')::$shared = [
     "menus" => $client->post("/common/set/menus", [

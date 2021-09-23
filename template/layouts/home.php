@@ -23,8 +23,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="167x167" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" />
     <meta name="Copyright" content="<?= date('Y') ?> Sigorta Türk A.Ş.">
-    <title><?=$title?></title>
-
+    <title><?= $title ?></title>
+    <link rel="apple-touch-icon" sizes="152x152" href="https://sgrttrk.com/assets/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sgrttrk.com/assets/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="https://sgrttrk.com/assets/favicons/favicon-32x32.png" />
     {!! $seo !!}
     <link rel="icon" type="image/png" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="<?= asset("assets") ?>/favicons/favicon-32x32.png" sizes="16x16" />
@@ -199,7 +201,7 @@
                             </form>
                         </div>
                         <div class="ml-4 mt-4 mr-4">
-                            <?php app('view')->include("modals/contract");?>
+                            <?php app('view')->include("modals/contract"); ?>
                         </div>
                         <div class="text-center">
                             <button type="button" id="btnApp" class="btn btn-primary mb-3 hvr-icon-forward">
@@ -370,7 +372,7 @@
                                     <input name="identity" id="usernameforreg" maxlength="11" type="text" class="form-control btn-validation mb-1" placeholder="<?= __('all.identity_number') ?>" required="">
                                     <input id="phonenumforreg" name="phoneNumber" maxlength="14" type="text" class="form-control btn-validation" placeholder="<?= __('all.phone_number') ?>" required="">
                                 </div>
-                            <?php app('view')->include("modals/contract");?>
+                                <?php app('view')->include("modals/contract"); ?>
 
 
                             </div>
@@ -625,8 +627,8 @@
     <script src="<?= asset("assets") ?>/js/kit.min.js"></script>
     <script src="<?= asset("assets") ?>/js/cookie.js"></script>
 
-    <script src="assets/js/services/apeal_agents.js"></script>
-    <script src="assets/js/services/index.js"></script>
+    <script src="<?= asset("assets") ?>/js/services/apeal_agents.js"></script>
+    <script src="<?= asset("assets") ?>/js/services/index.js"></script>
 
     <script>
         $(document).ready(function() {
