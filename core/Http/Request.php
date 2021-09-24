@@ -133,6 +133,6 @@ class Request
 
     public function referer()
     {
-        return $_SERVER['HTTP_REFERER'];
+        return trim($_SERVER['HTTP_REFERER'], "/");
     }
 }

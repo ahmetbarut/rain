@@ -83,3 +83,8 @@ function TCKnoCheck(string $TCK): bool
     }
     return false;
 }
+
+function session()
+{
+    return app('session');
+}

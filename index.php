@@ -1,10 +1,14 @@
 <?php
 
 use Core\Curl\Client;
-
+use Core\Http\Request;
 require_once './vendor/autoload.php';
+session_start();
+$sess = new Core\Http\Session\SessionManager(new \Core\Http\Session\Client);
+
 $container = new \Core\Container\Container();
 $container->set("auth", new \Core\Auth\User());
+$container->set("session", new \Core\Http\Session\SessionManager());
 $container->set("app", new \Core\App());
 $container->set("config", new \Core\Config\App);
 $container->set("view", new \Core\View\Render());
@@ -12,7 +16,6 @@ $container->set("router", new ahmetbarut\PhpRouter\Router\Router([
     "namespace" => "App\\Controller\\",
     "debug" => true,
 ]));
-
 
 $container->set(
     "translation",

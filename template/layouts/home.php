@@ -265,7 +265,7 @@
                                 <?php if (isset($_SESSION['error'])) : ?>
                                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.2.6/dist/sweetalert2.all.js"></script>
                                     <script>
-                                        Swal.fire("<?= __('all.warning') ?>", "<?= "Session::get('error')" ?>", "warning")
+                                        Swal.fire("<?= __('all.warning') ?>", "<?= "Client::get('error')" ?>", "warning")
                                     </script>
                                 <?php endif ?>
                             </center>
@@ -302,7 +302,7 @@
                                 <?php if (isset($_SESSION['error'])) : ?>
                                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.2.6/dist/sweetalert2.all.js"></script>
                                     <script>
-                                        Swal.fire("<?= __('all.warning') ?>", "<?= "Session::get('error')" ?>", "warning")
+                                        Swal.fire("<?= __('all.warning') ?>", "<?= "Client::get('error')" ?>", "warning")
                                     </script>
                                 <?php endif; ?>
                             </center>

@@ -22,11 +22,12 @@ class Render extends Component
     /**
      * Yüklenmesi istenen görünümü ve değişkenleri hazırlar.
      *
-     * @param string $view
-     * @param array $data
+     * @param  string  $view
+     * @param  array|null  $data
+     *
      * @return static
      */
-    public function render(string $view, array $data = null)
+    public function render(string $view, array $data = null): static
     {
         if (null !== $data) {
             $this->data = $data;
@@ -48,11 +49,12 @@ class Render extends Component
     /**
      * İlgili görünümü yükler ve parametreleri değişkene döndürür.
      *
-     * @param string $view
-     * @param array $data
+     * @param  string  $view
+     * @param  array|null  $data
+     *
      * @return static
      */
-    public function load(string $view, array $data = null)
+    public function load(string $view, array $data = null): static
     {
         if (!is_null($data)) {
             extract($data, EXTR_OVERWRITE);
@@ -63,6 +65,7 @@ class Render extends Component
         }
 
         require_once $this->getConfigPath() . '/' . $view . ".php";
+        session()->session->destroy;
         return $this;
     }
 

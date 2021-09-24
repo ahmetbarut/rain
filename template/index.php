@@ -1,5 +1,6 @@
 <?php
-app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');  
+dd(session(), $_SESSION);
+;app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');
 ?>
 <div class="main">
     <script>

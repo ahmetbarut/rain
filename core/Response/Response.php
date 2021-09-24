@@ -13,11 +13,10 @@ class Response
         $this->data = $data;
     }
 
-    public function json(array $data, int $code = 200)
-    {
+     public function json(array $data, int $code = 200): bool|string
+     {
         http_response_code($code);
-        echo json_encode($data);
-        exit;
+        return json_encode($data);
     }
 
     public function redirect(string $to = "", $code = 302)

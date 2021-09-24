@@ -7,9 +7,9 @@ use Core\Response\Response;
 
 abstract class Form extends Request implements IForm
 {
-    protected $request;
+    protected Request $request;
 
-    protected $errors;
+    protected array $errors;
 
     public function __construct()
     {
@@ -31,7 +31,7 @@ abstract class Form extends Request implements IForm
             ], 422);
         }
 
-        return $this->returnWithRedirect();
+        $this->returnWithRedirect();
     }
 
     public function returnWithRedirect()

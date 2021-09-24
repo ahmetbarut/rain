@@ -70,6 +70,7 @@ class Component
         $this->component[$this->section] = ob_get_clean();
 
         (new Render)->render($this->layout, $this->vars);
+
     }
     
     /**
