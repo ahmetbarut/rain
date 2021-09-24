@@ -3,8 +3,6 @@
 use Core\Curl\Client;
 use Core\Http\Request;
 require_once './vendor/autoload.php';
-session_start();
-$sess = new Core\Http\Session\SessionManager(new \Core\Http\Session\Client);
 
 $container = new \Core\Container\Container();
 $container->set("auth", new \Core\Auth\User());

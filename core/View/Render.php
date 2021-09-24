@@ -39,6 +39,7 @@ class Render extends Component
     /**
      * Görünümleri yüklemek için dizini alması gerekir.
      *
+     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
      * @return string
      */
     public function getConfigPath(): string 
@@ -52,6 +53,7 @@ class Render extends Component
      * @param  string  $view
      * @param  array|null  $data
      *
+     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
      * @return static
      */
     public function load(string $view, array $data = null): static
@@ -65,7 +67,7 @@ class Render extends Component
         }
 
         require_once $this->getConfigPath() . '/' . $view . ".php";
-        session()->session->destroy;
+        session()->unsetFlashData();
         return $this;
     }
 

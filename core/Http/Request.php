@@ -128,7 +128,10 @@ class Request
 
     public function ajax(): bool
     {
-        return $_SERVER["HTTP_X_REQUESTED_WITH"] === 'XMLHttpRequest';
+        if (isset($_SERVER["HTTP_X_REQUESTED_WITH"])) {
+            return  $_SERVER["HTTP_X_REQUESTED_WITH"] === 'XMLHttpRequest';
+        }
+        return false;
     }
 
     public function referer()

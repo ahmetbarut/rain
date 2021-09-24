@@ -11,6 +11,8 @@ abstract class Form extends Request implements IForm
 
     protected array $errors;
 
+    protected array $messageBag = [];
+
     public function __construct()
     {
         $this->request = new Request;
@@ -20,14 +22,13 @@ abstract class Form extends Request implements IForm
 
     public function returnErrors()
     {
+        foreach ($this->errors as $rule => $message) {
+            array_push($this->messageBag, ['rule' => $rule, 'message' => current($message)]);
+        }
         if ($this->request->ajax()) {
-            $messageBag = [];
-            foreach ($this->errors as $rule => $message) {
-                array_push($messageBag, ['rule' => $rule, 'message' => current($message)]);
-            }
             return (new Response())->json([
                 "status" => false,
-                "errors" => $messageBag
+                "errors" => $this->messageBag
             ], 422);
         }
 
@@ -36,6 +37,6 @@ abstract class Form extends Request implements IForm
 
     public function returnWithRedirect()
     {
-        return (new Response())->redirect();
+        (new Response())->with('errors', $this->messageBag)->redirect();
     }
 }

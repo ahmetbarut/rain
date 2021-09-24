@@ -2,6 +2,14 @@
 
 namespace Core\Http\Session;
 
+/**
+ * Oturum yönetimini yapar. Flash oturumları da destekler
+ *
+ * @method SessionInterface has(string $name)
+ * @method SessionInterface get(string $name)
+ * @method SessionInterface create(string $name, mixed $value)
+ * @method SessionInterface destroy()
+ */
 class SessionManager
 {
     /**
@@ -11,6 +19,9 @@ class SessionManager
 
     public function __construct()
     {
+        if (\PHP_SESSION_NONE === session_status()) {
+            session_start();
+        }
         $this->session = new Client();
     }
 
@@ -43,9 +54,26 @@ class SessionManager
                 $sessions[substr($key, 6)] = $item;
             }
         }
-        if (!in_array($name, $sessions)) {
+        if (!in_array($name, $sessions) && null !== $name) {
+
+            return false;
+        }elseif (empty($sessions))
+        {
             return false;
         }
         return (null !== $name) ? $sessions[$name] : $sessions;
     }
+
+    // burda
+
+    public function unsetFlashData(string $name = null): void
+    {
+        if ($name !== null && false !== $this->getFlash($name)) {
+            unset($_SESSION["flash_" . $name]);
+        }
+        else {
+            unset($_SESSION);
+        }
+    }
+
 }

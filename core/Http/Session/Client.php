@@ -2,6 +2,10 @@
 
 namespace Core\Http\Session;
 
+/**
+ * Oturumu kullanıcı tarayıcısına kaydetmeyi yapar.
+ * Veritabanı veya diğer kayıt türleri için \SesionInterface arayüzünü gerçekleştirmek gerekli.
+ */
 class Client implements  SessionInterface
 {
     /**

@@ -5,13 +5,15 @@ use Core\Container\Container;
 if (!function_exists('config')) {
 
     /**
-     * Yapılandırma dosyalarından istenen yapılandırmaları çeker. 
+     * Yapılandırma dosyalarından istenen yapılandırmaları çeker.
      * Bu yardımcı fonksiyon config/ içindeki bütün yapılandırma dosyalarına erişebiliyor.
      *
-     * @param string $key
+     * @param  string  $key
+     *
+     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
      * @return mixed
      */
-    function config($key)
+    function config(string $key)
     {
         return (Container::instance("config")->get($key));
     }
@@ -21,10 +23,12 @@ if (!function_exists('asset')) {
     /**
      * public dizinini döndürür.
      *
-     * @param string $asset
+     * @param  string|null  $asset
+     *
+     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
      * @return string
      */
-    function asset($asset = null): string
+    function asset(string $asset = null): string
     {
         return trim(config('app.app_url') . "/" . $asset, '/');
     }
@@ -37,7 +41,7 @@ if (!function_exists('__')) {
      * @param string $key
      * @return string
      */
-    function __(string $key)
+    function __(string $key): string
     {
         return trans($key);
     }
@@ -47,9 +51,10 @@ if (!function_exists('__')) {
  * Kapsayıcıdan istenen sınıf örneğini döndürür.
  *
  * @param string $abstract
+ *
  * @return mixed
  */
-function app(string $abstract)
+function app(string $abstract): mixed
 {
     return Container::instance($abstract);
 }

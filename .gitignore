@@ -1,9 +1,3 @@
 .idea
 .vscode
 vendor
-template/*
-src/Controller/*
-translation/en/*
-translation/tr/*
-public/assets
-assets

@@ -1,6 +1,5 @@
 <?php
-dd(session(), $_SESSION);
-;app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');
+app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('content');
 ?>
 <div class="main">
     <script>
@@ -36,6 +35,7 @@ dd(session(), $_SESSION);
                 </div>
             </div>
         </div>
+    <?php session()->unsetFlashData();dd($_SESSION) ?>
     </div>
     <div class="section-color text-center section-pading">
         <div class="container">
@@ -236,4 +236,4 @@ dd(session(), $_SESSION);
     </div>
 </div>
 
-<?php app('view')->stopSection(); ?>
+<?php app('view')->stopSection();?>
