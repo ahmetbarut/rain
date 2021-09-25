@@ -9,40 +9,46 @@ use Core\Response\Response;
 
 class ServicesController extends BaseController
 {
-    public function slider(Client $client, Response $response)
+    public function slider(Client $client, Response $response): \Core\Response\Response
     {
         $slider = $client->get("/common/slider/list", ["lang" => "tr", "src" => 2]);
 
-        // header('Content-Type: application/json');
-
         if ($slider->s === 1) {
-            echo $response->json($slider->d);
-            return;
+            return $response->json($slider->d);
         }
+        return $response->json([
+            "status" => false,
+            "message" => "İçerik bulunamadı."
+        ], 404);
     }
 
 
-    public function blog(Client $client, Response $response): void
+    public function blog(Client $client, Response $response): Response
     {
-        if ($client->get("/common/blog/latest", ["lang" => "tr", "src" => 3])->s === 1) {
-
-            echo $response->json($client->get("/common/blog/latest", ["lang" => "tr", "src" => 3])->d);
+        $data = $client->get("/common/blog/latest", ["lang" => "tr", "src" => 3]);
+        if ($data->s === 1) {
+            return $response->json($data->d);
         }
+
+        return $response->json([
+            "status" => false,
+            "message" => "İçerik bulunamadı."
+        ], 404);
     }
 
-    public function jobs(Client $client, Response $response)
+    public function jobs(Client $client, Response $response): Response
     {
-        echo($response->json(
+        return $response->json(
             [
                 "data" => $client->get("/common/jobs", ["lang" => "tr", "src" => 4])->d,
                 "key" => __("all.jobs_select")
             ]
-        ));
+        );
     }
 
-    public function city(Client $client, Response $response)
+    public function city(Client $client, Response $response): Response
     {
-        echo $response->json([
+        return $response->json([
             "data" => array_reverse($client->get("/common/city")->d),
             "key" => __("all.select_plaque")
         ]);

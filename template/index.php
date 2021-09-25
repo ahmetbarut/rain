@@ -35,7 +35,6 @@ app('view')->extends('layouts/home', ['title' => "Anasayfa"])->startSection('con
                 </div>
             </div>
         </div>
-    <?php session()->unsetFlashData();dd($_SESSION) ?>
     </div>
     <div class="section-color text-center section-pading">
         <div class="container">

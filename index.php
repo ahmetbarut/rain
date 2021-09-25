@@ -1,15 +1,23 @@
 <?php
+session_start();
 
 use Core\Curl\Client;
 use Core\Http\Request;
 require_once './vendor/autoload.php';
 
+
 $container = new \Core\Container\Container();
+
 $container->set("auth", new \Core\Auth\User());
+
 $container->set("session", new \Core\Http\Session\SessionManager());
+
 $container->set("app", new \Core\App());
+
 $container->set("config", new \Core\Config\App);
+
 $container->set("view", new \Core\View\Render());
+
 $container->set("router", new ahmetbarut\PhpRouter\Router\Router([
     "namespace" => "App\\Controller\\",
     "debug" => true,
@@ -25,7 +33,10 @@ $container->set(
     )
 );
 
-$container->set('validation', new \ahmetbarut\Validation\Validate(config('validation.rules')));
+try {
+    $container->set('validation', new \ahmetbarut\Validation\Validate(config('validation.rules')));
+} catch (\ahmetbarut\PhpRouter\Exception\NotRouteFound $e) {
+}
 
 $client = new Client();
 try {

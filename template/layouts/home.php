@@ -639,8 +639,8 @@
                     _token: $("meta[name=csrf-token]").attr("content"),
                 },
                 success: function(response) {
-                    $(".plaque").prepend(`<option selected disabled>${JSON.parse(response).key}</option>`);
-                    JSON.parse(response).data.map(function(cities) {
+                    $(".plaque").prepend(`<option selected disabled>${response.key}</option>`);
+                    response.data.map(function(cities) {
                         $(".plaque").prepend(`
                     <option value="${cities.id}">${cities.id} - ${cities.name}</option>
                 `)
@@ -654,8 +654,8 @@
                     _token: $("meta[name=csrf-token]").attr("content"),
                 },
                 success: function(response) {
-                    $(".jobs").prepend(`<option selected disabled>${JSON.parse(response).key}</option>`);
-                    JSON.parse(response).data.map(function(jobs) {
+                    $(".jobs").prepend(`<option selected disabled>${response.key}</option>`);
+                    response.data.map(function(jobs) {
                         $(".jobs").prepend(`
                     <option value="${jobs.j_code}">${jobs.j_name}</option>
                 `)

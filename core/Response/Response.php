@@ -10,27 +10,28 @@ class Response
 
     public function __construct(array $data = [])
     {
-        $this->data = $data;
     }
 
-     public function json(array $data, int $code = 200): bool|string
+     public function json(array $data, int $code = 200): static
      {
         http_response_code($code);
-        return json_encode($data);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+        return $this;
     }
 
-    public function with($name, $data)
+    public function with($name, $data): static
     {
         session()->flash($name, $data);
         return $this;
     }
 
-    public function redirect(string $to = "", $code = 302)
+    public function redirect(string $to = "", $code = 301): static
     {
         http_response_code($code);
 
         header(sprintf("Location: %s/%s", (new Request)->referer(), $to));
 
-        exit;
+        return $this;
     }
 }

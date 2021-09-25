@@ -228,7 +228,7 @@ function validateForm(selector, uri, sendForm) {
         url: "/product/" + uri,
         data: $(selector).serialize(),
         success: function(response) {
-            if (JSON.parse(response).status === true) {
+            if (response.status === true) {
                 $("#loading").fadeOut();
                 $(selector).attr("method", "POST");
                 $(selector).attr("action", sendForm);
@@ -236,7 +236,7 @@ function validateForm(selector, uri, sendForm) {
             }
         },
         error: function(xhr) {
-            JSON.parse(xhr.responseText).errors.map(function(error) {
+            xhr.responseJSON.errors.map(function(error) {
                 $("#loading").fadeOut();
                 $(selector + " .form-control[name=" + error.rule + "], .form-check-input[name=" + error.rule + "]").parent().append(`
                  <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">

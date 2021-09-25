@@ -43,7 +43,7 @@ class Client implements  SessionInterface
 
     public function flash(string $name, mixed $value): bool
     {
-        $this->create("flash_" . $name, $name);
+        $this->create("flash_" . $name, $value);
         return $this->has('flash_' . $name);
     }
 

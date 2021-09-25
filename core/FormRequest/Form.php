@@ -5,7 +5,7 @@ namespace Core\FormRequest;
 use Core\Http\Request;
 use Core\Response\Response;
 
-abstract class Form extends Request implements IForm
+abstract class Form extends Request
 {
     protected Request $request;
 
@@ -15,28 +15,27 @@ abstract class Form extends Request implements IForm
 
     public function __construct()
     {
+        parent::__construct();
         $this->request = new Request;
     }
 
+
     abstract public function handle(): bool;
 
-    public function returnErrors()
+
+    public function returnErrors(): Response|static
     {
         foreach ($this->errors as $rule => $message) {
             array_push($this->messageBag, ['rule' => $rule, 'message' => current($message)]);
         }
+
         if ($this->request->ajax()) {
-            return (new Response())->json([
+              return (new Response())->json([
                 "status" => false,
                 "errors" => $this->messageBag
             ], 422);
         }
 
-        $this->returnWithRedirect();
-    }
-
-    public function returnWithRedirect()
-    {
-        (new Response())->with('errors', $this->messageBag)->redirect();
+        return (new Response())->redirect();
     }
 }

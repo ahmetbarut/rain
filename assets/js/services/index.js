@@ -6,7 +6,8 @@ $.ajax({
         _token: $("meta[name=csrf-token]").attr("content")
     },
     success: function(sliders) {
-        JSON.parse(sliders).map(function(element) {
+        console.log(sliders);
+        sliders.map(function(element) {
             html = html + `
                  <div class="slide" style="margin-top: -150px;">
                     <div class="row align-items-center m-2">
@@ -129,7 +130,7 @@ $.ajax({
         _token: $("meta[name=csrf-token]").attr("content")
     },
     success: function(response) {
-        JSON.parse(response).map(function(blog) {
+        response.map(function(blog) {
             $("#blogs").prepend(`
                        <div class="col-lg-4 col-md-6">
                             <div class="blog-3 aos-init aos-animate" data-aos="fade-up">

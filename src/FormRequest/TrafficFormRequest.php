@@ -11,9 +11,10 @@ class TrafficFormRequest extends Form
     public function __construct()
     {
         parent::__construct();
-        if (!$this->handle())
+        if (false === $this->handle())
         {
-            return $this->returnErrors();
+            $this->returnErrors();
+            exit;
         }
     }
     
@@ -28,8 +29,7 @@ class TrafficFormRequest extends Form
             'contract1' => 'accepted',
             'contract2' => 'accepted',
         ]);
-
-        if (($errors = $validate->make()) !== true) {
+        if ( true !== ($errors = $validate->make())) {
             $this->errors = $errors;
             return false;
         }
