@@ -6,7 +6,6 @@ $.ajax({
         _token: $("meta[name=csrf-token]").attr("content")
     },
     success: function(sliders) {
-        console.log(sliders);
         sliders.map(function(element) {
             html = html + `
                  <div class="slide" style="margin-top: -150px;">

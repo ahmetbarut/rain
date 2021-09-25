@@ -9,12 +9,14 @@ class BaseController extends Render
 
     /**
      * Görünüm döndürür.
-     * @param string $view
-     * @param array $data
-     * @return void
+     *
+     * @param  string  $view
+     * @param  array|null  $data
+     *
+     * @return Render
      */
-    public function view(string $view, array $data = null)
+    public function view(string $view, array $data = null): Render
     {
-        $this->render($view, $data);
+        return $this->render($view, $data);
     }
 }

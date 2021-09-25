@@ -33,16 +33,17 @@ class Component
     protected array $vars = [];
 
     /**
-     * Ana bileşeni çağırır. 
+     * Ana bileşeni çağırır.
      *
-     * @param string $layout Dahil edilmesi istenen sayfa adı. Örn: home.php "home" diye yazılır.
-     * @param array $data gönderilmesi istenen değişkenler.
+     * @param  string  $layout  Dahil edilmesi istenen sayfa adı. Örn: home.php "home" diye yazılır.
+     * @param  array|null  $data  gönderilmesi istenen değişkenler.
+     *
      * @return static
      */
-    public function extends(string $layout, array $data = null)
+    public function extends(string $layout, ?array $data = null): static
     {
         $this->layout = $layout;
-        $this->vars = $data;
+        $this->vars = $data ?? [];
         return $this;
     }
 

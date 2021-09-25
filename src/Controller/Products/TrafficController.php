@@ -4,11 +4,12 @@ namespace App\Controller\Products;
 
 use App\FormRequest\TrafficFormRequest;
 use App\Rules\Min;
+use Core\Controller\BaseController;
 use Core\Curl\Client;
 use Core\Http\Request;
 use Core\Response\Response;
 
-class TrafficController
+class TrafficController extends BaseController
 {
     /**
      * Undocumented function
@@ -17,13 +18,22 @@ class TrafficController
      * @param Client $client
      * @return Response
      */
-    public function validate(TrafficFormRequest $request, Client $client)
+    public function validate(TrafficFormRequest $request, Client $client): void
     {
-        return (new Response())->json(['status' => true]);
+        //
     }
 
-    public function offerView(TrafficFormRequest $request)
+    public function offerView(TrafficFormRequest $request, Client $client)
     {
-        return (new Response())->json($request->post, 200);
+        $product = $client->get("/common/products/detail", ["lang" =>"tr", "slug" => "trafik", "src" => 3]);
+
+        $response = $client->post("/common/client/search", [
+            'restype' => '1',
+            'identity_type' => 1,
+            'identity' => $request->post['identity'],
+            'nationality' => 'TUR',
+            'src' => 2]);
+
+        return $this->view('OfferPage/off_traffic');
     }
 }
