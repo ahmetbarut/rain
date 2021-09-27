@@ -93,3 +93,16 @@ function session()
 {
     return app('session');
 }
+
+/**
+ * Verilen dizgeyi belirtilen karakterle maskeler. Varsayılan *.
+ *
+ * @param string $string  Maskelenecek dizge
+ * @param string $mask Maskeleme için kullanılacak karakter
+ *
+ * @return string
+ */
+function strMask (string $string, string $mask = "*"): string
+{
+    return (substr($string,0,2) . str_repeat($mask, strlen($string)) . substr($string,-2,2));
+}

@@ -2,7 +2,6 @@
 session_start();
 
 use Core\Curl\Client;
-use Core\Http\Request;
 require_once './vendor/autoload.php';
 
 

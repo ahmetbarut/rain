@@ -57,19 +57,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ahmetbarut/php-translation.git",
-                "reference": "a5a45a8875c60183a001d71502bebe6184ac5378"
+                "reference": "f7b851b301e5378a72872a5d9fe355c53ceef24f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/a5a45a8875c60183a001d71502bebe6184ac5378",
-                "reference": "a5a45a8875c60183a001d71502bebe6184ac5378",
+                "url": "https://api.github.com/repos/ahmetbarut/php-translation/zipball/f7b851b301e5378a72872a5d9fe355c53ceef24f",
+                "reference": "f7b851b301e5378a72872a5d9fe355c53ceef24f",
                 "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*"
             },
             "require-dev": {
                 "symfony/var-dumper": "*"
             },
             "default-branch": true,
-            "type": "project",
+            "type": "package",
             "autoload": {
                 "psr-4": {
                     "ahmetbarut\\Translation\\": "src/"
@@ -91,9 +94,9 @@
             "description": "Çoklu dil kullanan web sitesinde birden fazla dil ve kullanım kolaylığı sunuyor.",
             "support": {
                 "issues": "https://github.com/ahmetbarut/php-translation/issues",
-                "source": "https://github.com/ahmetbarut/php-translation/tree/master"
+                "source": "https://github.com/ahmetbarut/php-translation/tree/v1.1.0"
             },
-            "time": "2021-09-22T09:07:29+00:00"
+            "time": "2021-09-27T07:37:52+00:00"
         },
         {
             "name": "ahmetbarut/validation",
@@ -550,12 +553,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "c512fd308b8fdccf510967376e0cc5a3929705c6"
+                "reference": "adf7a90588e84bb76d2093df95bcc0212bebc761"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/c512fd308b8fdccf510967376e0cc5a3929705c6",
-                "reference": "c512fd308b8fdccf510967376e0cc5a3929705c6",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/adf7a90588e84bb76d2093df95bcc0212bebc761",
+                "reference": "adf7a90588e84bb76d2093df95bcc0212bebc761",
                 "shasum": ""
             },
             "require": {
@@ -600,7 +603,7 @@
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
                 "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
             },
-            "time": "2021-09-17T13:49:47+00:00"
+            "time": "2021-09-23T18:17:06+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -608,12 +611,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
+                "reference": "4b3579fc931524f60874ecee67600d5c80c7b505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/4b3579fc931524f60874ecee67600d5c80c7b505",
+                "reference": "4b3579fc931524f60874ecee67600d5c80c7b505",
                 "shasum": ""
             },
             "require": {
@@ -649,9 +652,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.x"
             },
-            "time": "2021-09-17T15:28:14+00:00"
+            "time": "2021-09-26T07:37:33+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -727,12 +730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0f34774f3cde277805ef92e44212b94684deb40f"
+                "reference": "ff5245c8fa867453a0ef23953634da1675d8166a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0f34774f3cde277805ef92e44212b94684deb40f",
-                "reference": "0f34774f3cde277805ef92e44212b94684deb40f",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ff5245c8fa867453a0ef23953634da1675d8166a",
+                "reference": "ff5245c8fa867453a0ef23953634da1675d8166a",
                 "shasum": ""
             },
             "require": {
@@ -784,7 +787,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-23T11:52:26+00:00"
+            "time": "2021-09-24T14:31:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1110,12 +1113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e237efc81ea1e4e02302d6b360ddfc1bb3072359"
+                "reference": "c814a05837f2edb0d1471d6e3f4ab3501ca3899a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e237efc81ea1e4e02302d6b360ddfc1bb3072359",
-                "reference": "e237efc81ea1e4e02302d6b360ddfc1bb3072359",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c814a05837f2edb0d1471d6e3f4ab3501ca3899a",
+                "reference": "c814a05837f2edb0d1471d6e3f4ab3501ca3899a",
                 "shasum": ""
             },
             "require": {
@@ -1193,7 +1196,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.10"
             },
             "funding": [
                 {
@@ -1205,7 +1208,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-22T07:14:14+00:00"
+            "time": "2021-09-25T07:38:51+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2339,12 +2342,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "8eea4e86e7c050924f406e740d8e04eb2eb69b9d"
+                "reference": "b19869356c52cd62ef94fe915ef2c6e21840b71c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/8eea4e86e7c050924f406e740d8e04eb2eb69b9d",
-                "reference": "8eea4e86e7c050924f406e740d8e04eb2eb69b9d",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/b19869356c52cd62ef94fe915ef2c6e21840b71c",
+                "reference": "b19869356c52cd62ef94fe915ef2c6e21840b71c",
                 "shasum": ""
             },
             "require": {
@@ -2419,7 +2422,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-08T12:30:29+00:00"
+            "time": "2021-09-24T16:15:55+00:00"
         },
         {
             "name": "theseer/tokenizer",

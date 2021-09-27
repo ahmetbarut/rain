@@ -2,6 +2,8 @@
 
 namespace Core\View;
 
+use ahmetbarut\PhpRouter\Exception\NotRouteFound;
+
 class Component
 {
     /**
@@ -61,16 +63,18 @@ class Component
     }
 
     /**
-     * Bileşeni durdur. Öncesinde yazılan tüm kodları 
+     * Bileşeni durdur. Öncesinde yazılan tüm kodları
      * getirir ve ilgili bileşen adına ekler, ardından işler ve yazdırır.
-     * 
+     *
+     * @throws NotRouteFound
      * @return void
      */
     public function stopSection(): void
     {
         $this->component[$this->section] = ob_get_clean();
 
-        (new Render)->render($this->layout, $this->vars);
+        dd((new Render)->render($this->layout, $this->vars));
+        echo (new Render)->render($this->layout, $this->vars);
 
     }
     

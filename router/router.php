@@ -14,7 +14,7 @@ return function () use ($router) {
     $router->post('teklif/trafik', "Products\\TrafficController@offerView")->name('offerView');
     
 
-    /*
+    /**
     |----------------------------------------------------------------
     |                          API   
     |---------------------------------------------------------------- 
@@ -26,7 +26,7 @@ return function () use ($router) {
     $router->post('/getJobs', "ServicesController@jobs");
 
 
-    /*
+    /**
     |----------------------------------------------------------------
     |                          API POST   
     |---------------------------------------------------------------- 

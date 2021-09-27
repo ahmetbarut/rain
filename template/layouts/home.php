@@ -496,7 +496,7 @@
                             </li>
                             <li>
                                 <a class="hvr-icon-forward" href="{{ route("blog") }}"><span class="material-icons hvr-icon">chevron_right</span>
-                                    <?= __("Blog") ?> </a>
+                                    <?= "Blog" ?> </a>
                             </li>
                             <li>
                                 <a class="hvr-icon-forward" href="{{ route("vehicle.show", "kasko-deger-listesi") }}"><span class="material-icons hvr-icon">chevron_right</span> <?= __("all.insurance_value_list") ?>

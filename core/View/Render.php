@@ -25,6 +25,7 @@ class Render extends Component
      * @param  string  $view
      * @param  array|null  $data
      *
+     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
      * @return static
      */
     public function render(string $view, array $data = null): static
@@ -65,9 +66,7 @@ class Render extends Component
         if (!empty(app('view')::$shared)) {
             extract(app('view')::$shared, EXTR_OVERWRITE);
         }
-
         require_once $this->getConfigPath() . '/' . $view . ".php";
-        session()->unsetFlashData();
         return $this;
     }
 

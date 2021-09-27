@@ -18,9 +18,12 @@ class TrafficController extends BaseController
      * @param Client $client
      * @return Response
      */
-    public function validate(TrafficFormRequest $request, Client $client): void
+    public function validate(TrafficFormRequest $request, Client $client): Response
     {
-        //
+
+        return (new Response())->json([
+            'status' => true,
+        ]);
     }
 
     public function offerView(TrafficFormRequest $request, Client $client)
@@ -34,6 +37,15 @@ class TrafficController extends BaseController
             'nationality' => 'TUR',
             'src' => 2]);
 
-        return $this->view('OfferPage/off_traffic');
+        return $this->view('OfferPage/off_traffic', [
+            'products' => $product,
+            'response' => $response,
+            'slug' => 'trafik',
+            'jobs' => $client->get("/common/jobs", ["lang" => "tr"]),
+            "user_data" => $request->input(),
+            "plaque_number" => $request->input('plateNo'),
+            "cities" => $client->get("/common/city"),
+            "usageTypes" => $client->get("/common/vehicle/usagetype", ["lang" => "tr", "src" => 2]),
+        ]);
     }
 }

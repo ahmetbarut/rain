@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace Core\Http;
 
-class Request 
+use ahmetbarut\PhpRouter\Request\Input\InputInterface;
+use PHPStan\BetterReflection\Reflection\Exception\ReflectionTypeDoesNotPointToAClassAlikeType;
+
+class Request
 {
     /**
      * Stored $_GET data.
@@ -59,7 +62,9 @@ class Request
      * @var string
      */
     public $method;
-    
+
+    private array $input;
+
     /**
      * Stored input request data.
      *
@@ -92,6 +97,7 @@ class Request
         
         $this->url = $this->uri();
 
+        $this->input = array_merge($_GET,$_POST, $_FILES);
     }
     
     /**
@@ -110,7 +116,7 @@ class Request
      *
      * @return string
      */
-    public static function method()
+    public static function method(): string
     {
         return $_SERVER['REQUEST_METHOD'];
     }
@@ -120,7 +126,7 @@ class Request
      *
      * @return string
      */
-    public static function httpReferer()
+    public static function httpReferer(): string
     {
         $scheme = isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] :'http';
         return  $scheme . '://' . trim($_SERVER['HTTP_HOST'], '/');
@@ -134,8 +140,17 @@ class Request
         return false;
     }
 
-    public function referer()
+    public function referer(): string
     {
         return trim($_SERVER['HTTP_REFERER'], "/");
+    }
+
+    public function input(string $key = null)
+    {
+        if ($key === null) {
+            return $this->input;
+        }
+
+        return $this->input[$key];
     }
 }
