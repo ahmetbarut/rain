@@ -2,21 +2,20 @@
 
 namespace Core\Controller;
 
-use Core\View\Render;
+use Mudita\View\Engine;
 
-class BaseController extends Render
+class BaseController
 {
 
     /**
      * Görünüm döndürür.
      *
-     * @param  string  $view
-     * @param  array|null  $data
-     *
-     * @return Render
+     * @param string $view
+     * @param array|null $data
+     * @return Engine
      */
-    public function view(string $view, array $data = null): Render
+    public function view(string $view, array $data = null): Engine
     {
-        return $this->render($view, $data);
+        return app('view')->load($view, $data);
     }
 }

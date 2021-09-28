@@ -45,11 +45,11 @@ class Engine
      *
      * @param string $view
      * @param  array  $data
+     * @return static
      */
-    public function load(string $view, array $data = []){
-
+    public function load(string $view, array $data = []): static
+    {
         extract($data, EXTR_IF_EXISTS);
-
         $viewPath = $this->config('view') . "/{$view}.php";
         ob_start();
         require ($viewPath);
@@ -64,6 +64,7 @@ class Engine
         if (null !== error_get_last()) {
             new ViewError($view);
         }
+        return $this;
 
     }
 

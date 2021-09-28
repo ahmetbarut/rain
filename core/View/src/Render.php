@@ -37,7 +37,7 @@ class Render extends Engine
     /**
      * @inheritDoc
      */
-    public function load($view, array $data = [])
+    public function load($view, array $data = []): static
     {
         parent::load($view, $data);
     }
@@ -48,6 +48,7 @@ class Render extends Engine
      */
     public function extends($section): void
     {
+        extract(static::$share);
         $this->layouts = $section;
     }
 
@@ -83,12 +84,14 @@ class Render extends Engine
 
     public function share(string | array $key, $value = null): bool
     {
+        $share = [];
         if (is_string($key)) {
-            static::$share[$key] = $value;
+            $share[$key] = $value;
         }else {
-            foreach ($key as $k => $item) {
-                static::$share[$k] = $item;
-            }
+            $share = $key;
+        }
+        foreach ($share as $key => $item) {
+            static::$share[$key] = $item;
         }
         return true;
 
@@ -96,6 +99,6 @@ class Render extends Engine
 
     public function __destruct()
     {
-        $this->load($this->layouts, static::$share);
+        $this->load($this->layouts);
     }
 }
