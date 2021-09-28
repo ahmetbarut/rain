@@ -4,7 +4,6 @@ session_start();
 use Core\Curl\Client;
 require_once './vendor/autoload.php';
 
-
 $container = new \Core\Container\Container();
 
 $container->set("auth", new \Core\Auth\User());
@@ -15,7 +14,10 @@ $container->set("app", new \Core\App());
 
 $container->set("config", new \Core\Config\App);
 
-$container->set("view", new \Core\View\Render());
+$container->set("view", new Mudita\View\Render([
+    'view' => __DIR__ . '/template',
+    'cache' => __DIR__ . '/var/view'
+]));
 
 $container->set("router", new ahmetbarut\PhpRouter\Router\Router([
     "namespace" => "App\\Controller\\",
@@ -43,8 +45,7 @@ try {
 } catch (\Throwable $th) {
     $settings = [];
 }
-
-$container->get('view')::$shared = [
+$container->get('view')->share([
     "menus" => $client->post("/common/set/menus", [
         "pos" => 1,
         "lang" => "tr"
@@ -54,7 +55,7 @@ $container->get('view')::$shared = [
     "whyus_data" => $client->get("/common/whyus/get", ["lang" => "tr"]),
     "analytics" => json_decode($settings['third_services']),
     'corporates' => $client->get("/common/cooperate/list", ["lang" => "tr"]),
-];
+]);
 $container->get("translation")->setLocale("tr");
 
 $container->get("app")->loadRouter();

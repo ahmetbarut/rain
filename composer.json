@@ -6,7 +6,8 @@
         "ahmetbarut/php-router": "dev-master",
         "psr/container": "2.0.x-dev",
         "ahmetbarut/translation": "dev-master",
-        "ahmetbarut/validation": "dev-master"
+        "ahmetbarut/validation": "dev-master",
+        "mudita/view-render": "dev-master"
     },
     "require-dev": {
         "symfony/var-dumper": "6.0.x-dev",
@@ -24,6 +25,12 @@
     },
     "autoload-dev": {
         "Test\\": "test/"
+    },
+    "repositories": {
+        "local": {
+            "type": "path",
+            "url": "./core/View"
+        }
     },
     "minimum-stability": "dev"
 }

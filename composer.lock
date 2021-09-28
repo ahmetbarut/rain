@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bcdbd6d8adf45edecf86737d279bdc8d",
+    "content-hash": "481bd2b24de8ed143e847cd529a2e49e",
     "packages": [
         {
             "name": "ahmetbarut/php-router",
@@ -141,6 +141,37 @@
                 "source": "https://github.com/ahmetbarut/validation/tree/master"
             },
             "time": "2021-09-22T08:58:17+00:00"
+        },
+        {
+            "name": "mudita/view-render",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./core/View",
+                "reference": "6998f6f389e6d6781c2d45f7e6c10bde1c2a67fd"
+            },
+            "require-dev": {
+                "symfony/var-dumper": "6.0.x-dev"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Mudita\\View\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmet Barut",
+                    "email": "ahmetbarut588@gmail.com"
+                }
+            ],
+            "description": "View Render",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "psr/container",
@@ -2541,6 +2572,7 @@
         "psr/container": 20,
         "ahmetbarut/translation": 20,
         "ahmetbarut/validation": 20,
+        "mudita/view-render": 20,
         "symfony/var-dumper": 20,
         "phpstan/phpstan": 20
     },
