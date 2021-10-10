@@ -1,17 +1,19 @@
 {
-    "name": "sigortaturk/mvc",
-    "description": "Sigorta türk",
+    "name": "ahmetbarut/rain",
+    "description": "Rain framework",
     "type": "project",
     "require": {
         "ahmetbarut/php-router": "dev-master",
         "psr/container": "2.0.x-dev",
         "ahmetbarut/translation": "dev-master",
         "ahmetbarut/validation": "dev-master",
-        "mudita/view-render": "dev-master"
+        "ahmetbarut/view-render": "dev-master",
+        "symfony/console": "6.0.x-dev",
+        "symfony/finder": "6.0.x-dev"
     },
     "require-dev": {
-        "symfony/var-dumper": "6.0.x-dev",
-        "phpstan/phpstan": "1.0.x-dev",
+        "symfony/var-dumper": "        "phpstan/phpstan": "1.0.x-dev",
+6.0.x-dev",
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
@@ -24,13 +26,7 @@
         ]
     },
     "autoload-dev": {
-        "Test\\": "test/"
-    },
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "./core/View"
-        }
+        "Test\\": "tests/"
     },
     "minimum-stability": "dev"
 }

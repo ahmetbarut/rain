@@ -1,8 +1,9 @@
 <?php
 session_start();
-
-use Core\Curl\Client;
 require_once './vendor/autoload.php';
+$finder = new \Symfony\Component\Finder\Finder();
+
+$finder->files()->in(__DIR__ . '/src/Rules');
 
 $container = new \Core\Container\Container();
 
@@ -14,7 +15,7 @@ $container->set("app", new \Core\App());
 
 $container->set("config", new \Core\Config\App);
 
-$container->set("view", new Mudita\View\Render([
+$container->set("view", new \ahmetbarut\View\Render([
     'view' => __DIR__ . '/template',
     'cache' => __DIR__ . '/var/view'
 ]));
@@ -39,23 +40,12 @@ try {
 } catch (\ahmetbarut\PhpRouter\Exception\NotRouteFound $e) {
 }
 
-$client = new Client();
-try {
-    $settings = $client->get("/common/general/generals", ["lang" => "tr"])->d;
-} catch (\Throwable $th) {
-    $settings = [];
-}
-$container->get('view')->share([
-    "menus" => $client->post("/common/set/menus", [
-        "pos" => 1,
-        "lang" => "tr"
-    ]),
-    "settings" => $settings,
-    "partners" => $client->get("/common/partners/list", ["lang" => "tr"]),
-    "whyus_data" => $client->get("/common/whyus/get", ["lang" => "tr"]),
-    "analytics" => json_decode($settings['third_services']),
-    'corporates' => $client->get("/common/cooperate/list", ["lang" => "tr"]),
-]);
+spl_autoload_register(function ($className){
+
+    include  __DIR__. '/core/Commands/' . $className . '.php';
+});
+dd(class_exists('CreateCommand'));
+
 $container->get("translation")->setLocale("tr");
 
 $container->get("app")->loadRouter();

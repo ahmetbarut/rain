@@ -13,7 +13,7 @@ if (!function_exists('config')) {
      * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
      * @return mixed
      */
-    function config(string $key)
+    function config(string $key): mixed
     {
         return (Container::instance("config")->get($key));
     }
@@ -105,4 +105,22 @@ function session()
 function strMask (string $string, string $mask = "*"): string
 {
     return (substr($string,0,2) . str_repeat($mask, strlen($string)) . substr($string,-2,2));
+}
+
+function after($subject, $search)
+{
+    return array_reverse(explode($search, $subject, 2))[0];
+}
+
+function core_path(string $path = ''): string
+{
+    $path = $path != '' ? '/' . $path : '';
+    return dirname(__DIR__, 2) . '/core' . $path;
+}
+
+
+function app_path(string $path = ''): string
+{
+    $path = $path != '' ? '/' . $path : '';
+    return dirname(__DIR__, 2) . '/src' . $path;
 }

@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+require './vendor/autoload.php';
+
+use Core\Commands\Command;
+
+$command = new Command();
+
+$command->load(__DIR__ .'/src/Console/Commands');
+
+$command->run();
