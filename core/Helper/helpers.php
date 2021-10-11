@@ -1,5 +1,6 @@
 <?php
 
+use ahmetbarut\PhpRouter\Exception\NotRouteFound;
 use Core\Container\Container;
 
 if (!function_exists('config')) {
@@ -10,7 +11,7 @@ if (!function_exists('config')) {
      *
      * @param  string  $key
      *
-     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
+     * @throws NotRouteFound
      * @return mixed
      */
     function config(string $key): mixed
@@ -25,7 +26,7 @@ if (!function_exists('asset')) {
      *
      * @param  string|null  $asset
      *
-     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
+     * @throws NotRouteFound
      * @return string
      */
     function asset(string $asset = null): string
@@ -53,45 +54,11 @@ if (!function_exists('__')) {
  * @param string $abstract
  *
  * @return mixed
+ * @throws NotRouteFound
  */
 function app(string $abstract): mixed
 {
     return Container::instance($abstract);
-}
-
-
-/**
- * T.C kimlik numarasını kontrol eder.
- * @param string $TCK
- * @return bool
- */
-function TCKnoCheck(string $TCK): bool
-{
-    if (strlen($TCK) != 11 || $TCK[0] == 0) {
-        return false;
-    } else {
-        $first = 0;
-        $old = 0;
-        for ($i = 0; $i < 9; $i++) {
-            if ($i % 2 == 0) {
-                $first += $TCK[$i];
-            } else {
-                $old += $TCK[$i];
-            }
-        }
-        $c1 = (($first) * 7 - ($old)) % 10;
-        $c2 = ($first + $old + $c1) % 10;
-        /* 10. karakter */          /* 11. karakter */
-        if (substr($TCK, -2, 1) == $c1 && substr($TCK, -1, 1) == $c2) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function session()
-{
-    return app('session');
 }
 
 /**
@@ -112,13 +79,22 @@ function after($subject, $search)
     return array_reverse(explode($search, $subject, 2))[0];
 }
 
+/**
+ * Get core path.
+ * @param string $path
+ * @return string
+ */
 function core_path(string $path = ''): string
 {
     $path = $path != '' ? '/' . $path : '';
     return dirname(__DIR__, 2) . '/core' . $path;
 }
 
-
+/**
+ * Get src path
+ * @param string $path
+ * @return string
+ */
 function app_path(string $path = ''): string
 {
     $path = $path != '' ? '/' . $path : '';

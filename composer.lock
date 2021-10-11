@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe906bc72a030ada9cc82f26856aa566",
+    "content-hash": "2c1069fbda750b897f241e0d9508e919",
     "packages": [
         {
             "name": "ahmetbarut/php-router",
@@ -243,12 +243,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a24995743bf7ed981094cd2eb26301f234ac2e4e"
+                "reference": "65e644b83877b416fe81f08834a998bb37006a7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a24995743bf7ed981094cd2eb26301f234ac2e4e",
-                "reference": "a24995743bf7ed981094cd2eb26301f234ac2e4e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/65e644b83877b416fe81f08834a998bb37006a7b",
+                "reference": "65e644b83877b416fe81f08834a998bb37006a7b",
                 "shasum": ""
             },
             "require": {
@@ -330,7 +330,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-05T21:23:30+00:00"
+            "time": "2021-10-11T16:08:10+00:00"
         },
         {
             "name": "symfony/finder",
@@ -1416,71 +1416,6 @@
                 "source": "https://github.com/phpspec/prophecy/tree/1.14.0"
             },
             "time": "2021-09-10T09:02:12+00:00"
-        },
-        {
-            "name": "phpstan/phpstan",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "656e866050ded976167fddbada0d49ba92f0b3e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/656e866050ded976167fddbada0d49ba92f0b3e5",
-                "reference": "656e866050ded976167fddbada0d49ba92f0b3e5",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1|^8.0"
-            },
-            "conflict": {
-                "phpstan/phpstan-shim": "*"
-            },
-            "default-branch": true,
-            "bin": [
-                "phpstan",
-                "phpstan.phar"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHPStan - PHP Static Analysis Tool",
-            "support": {
-                "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/ondrejmirtes",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/phpstan",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpstan",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-10-08T07:42:13+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2874,12 +2809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "365809ea58049164119bafe0778c087bec2806b5"
+                "reference": "6e01f85389725bff9e19b8c323ad82aea44b3f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/365809ea58049164119bafe0778c087bec2806b5",
-                "reference": "365809ea58049164119bafe0778c087bec2806b5",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6e01f85389725bff9e19b8c323ad82aea44b3f0e",
+                "reference": "6e01f85389725bff9e19b8c323ad82aea44b3f0e",
                 "shasum": ""
             },
             "require": {
@@ -2954,7 +2889,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-06T08:10:14+00:00"
+            "time": "2021-10-11T16:08:10+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -3076,8 +3011,7 @@
         "ahmetbarut/view-render": 20,
         "symfony/console": 20,
         "symfony/finder": 20,
-        "symfony/var-dumper": 20,
-        "phpstan/phpstan": 20
+        "symfony/var-dumper": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

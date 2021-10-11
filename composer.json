@@ -12,8 +12,7 @@
         "symfony/finder": "6.0.x-dev"
     },
     "require-dev": {
-        "symfony/var-dumper": "        "phpstan/phpstan": "1.0.x-dev",
-6.0.x-dev",
+        "symfony/var-dumper": "6.0.x-dev",
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {

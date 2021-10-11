@@ -10,26 +10,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class CreateCommand extends Command
 {
     protected static $defaultName = 'make:command';
-    protected static $defaultDescription = 'Yeni komut oluşturur.';
+
+    protected static $defaultDescription = 'Create a new command.';
 
     protected function configure()
     {
         $this->addArgument('name', InputArgument::REQUIRED, 'Command name');
     }
 
-    protected function initialize(InputInterface $input, OutputInterface $output)
-    {
-        //
-    }
-
-    protected function interact(InputInterface $input, OutputInterface $output)
-    {
-        //
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $stubFile = file_get_contents(core_path('Commands/create.stub'));
+        $stubFile = file_get_contents(core_path('Stubs/Command/create.stub'));
 
         $commandName = $input->getArgument('name');
 

@@ -6,22 +6,24 @@ use ahmetbarut\PhpRouter\Exception\NotRouteFound;
 use Closure;
 use Psr\Container\ContainerInterface;
 
+/**
+ * @author Ahmet Barut <iletisim@ahmetbarut.net>
+ */
 class Container implements ContainerInterface 
 {
 
     /**
-     * Girişi yapılan sınıfları tutar.
+     * It holds the entered classes.
      *
      * @var array
      */
     protected array $entries = [];
 
     /**
-     * Çözümlenen sınıfları tutar.
-     *
+     * Holds the resolved classes.
      * @var array
      */
-    public static $resolved = [];
+    public static array $resolved = [];
 
     public function __construct()
     {
@@ -29,7 +31,7 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Kapsayıcıdan istenen sınıfı döndürür.
+     * Returns the requested class from the container.
      * @throws NotRouteFound
      */
     public function get(string $id)
@@ -50,7 +52,7 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Kapsayıcıda belirtilen sınıfın örneğini kontrol eder.
+     * Checks the instance of the class specified in the container.
      *
      * @param string $id
      * @return boolean
@@ -61,13 +63,13 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Kapsayıcıya yeni sınıf örneğini ekler.
+     * Adds new class instance to container.
      *
      * @param string $abstract
-     * @param string $concrete
+     * @param string|null $concrete
      * @return static
      */
-    public function set($abstract, $concrete = null): static
+    public function set(string $abstract, string $concrete = null): static
     {
         if(null === $concrete){
             $concrete = $abstract;
@@ -81,8 +83,9 @@ class Container implements ContainerInterface
      *
      * @param string $key
      * @return self
+     * @throws NotRouteFound
      */
-    public static function instance(string $key)
+    public static function instance(string $key): Container
     {
         return (new self)->get($key);
     }

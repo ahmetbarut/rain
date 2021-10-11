@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class {command} extends Command
+{
+    /**
+     * The name to invoke the command.
+     * @var static string $defaultName
+     */
+    protected static $defaultName = 'make:controller';
+
+    /**
+     * command description.
+     * @var static string $defaultDescription
+     */
+    protected static $defaultDescription = 'Command description.';
+
+    /**
+     * Makes command configurations.
+     */
+    protected function configure()
+    {
+        // $this->addArgument('argumentName', InputArgument::OPTIONAL, 'argument description', 'argument_default');
+        // $this->setHelp('Set command help');
+        // $this->addOption('option',  null, InputOption::VALUE_REQUIRED, 'option description');
+    }
+
+    /**
+     * This method is executed after interact() and initialize().
+     * It contains the logic you want the command to execute
+     * and it must return an integer which will be used as the command exit status.
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+
+        // $output->write('The one line writer', true);
+        // $input->getArgument('argumentName');
+        // echo  $input->getOption('option');
+        return Command::SUCCESS;
+    }
+
+}

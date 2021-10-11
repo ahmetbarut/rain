@@ -1,0 +1,8 @@
+<?php
+
+namespace App\Controller;
+
+class {controllerName} extends \Core\Controller\BaseController
+{
+    // The Controller
+}
