@@ -42,7 +42,7 @@ class ServerCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        exec("php -S {$input->getOption('host')}:{$input->getOption('port')}");
+        exec("php -S {$input->getOption('host')}:{$input->getOption('port')} -t " . root_path('public'));
         return Command::SUCCESS;
     }
 

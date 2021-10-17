@@ -17,6 +17,8 @@ abstract class Base extends Container
         $this->setServiceName(get_class($this));
     }
 
+    abstract public function register(): void;
+
     abstract public function handle(): void;
 
     /**

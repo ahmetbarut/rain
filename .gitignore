@@ -3,3 +3,6 @@
 .history
 vendor
 var/view/*
+var/services.php
+template/*
+src/Controller/*

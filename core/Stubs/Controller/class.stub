@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class {controllerName} extends \Core\Controller\BaseController
+class {className} extends \Core\Controller\BaseController
 {
     // The Controller
 }

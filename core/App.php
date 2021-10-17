@@ -9,33 +9,12 @@ class App
 {
     private array $resolvedServices = [];
 
-    /**
-     * Router.php dosyasını, yapılandırmasını yükler ve yürütür.
-     * Artık istekleri almaya hazır hale getirir.
-     *
-     * @return void
-     * @throws \ahmetbarut\PhpRouter\Exception\NotRouteFound
-     */
-    public function loadRouter()
-    {
-
-        if (file_exists(dirname(__DIR__) . '/config/router.php')) {
-            include dirname(__DIR__) . "/config/router.php";
-
-            $router = include config('router.path') . '/route.php';
-            
-            $router();
-        } else {
-            throw new \Exception('config/route.php not found');
-        }
-    }
-
     public function run()
     {
-
+        $this->loadServices();
     }
 
-    public function loadServices ()
+    private function loadServices ()
     {
         $finder = new Finder();
 
@@ -55,7 +34,9 @@ class App
     {
         if (is_subclass_of($service, Base::class))
         {
-            (new $service)->handle();
+            $service = new $service;
+            $service->register();
+            $service->handle();
         }
     }
 }

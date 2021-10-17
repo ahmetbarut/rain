@@ -115,3 +115,9 @@ function view_path(string $path = ''): string
     $path = $path != '' ? '/' . $path : '';
     return config('view.path') . $path;
 }
+
+function root_path(string $path = ''): string
+{
+    $path = $path != '' ? '/' . $path : '';
+    return rtrim(dirname(__DIR__, 2) . $path ,'/');
+}
