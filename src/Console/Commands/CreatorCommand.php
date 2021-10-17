@@ -27,6 +27,7 @@ class CreatorCommand extends Command
         $name = $input->getArgument('name');
         $path = root_path($input->getArgument('path'));
 
+        $overwrite = $input->getOption('overwrite');
         $include = $input->getOption('include');
 
         if (null !== $include){
@@ -37,10 +38,19 @@ class CreatorCommand extends Command
             $content = $include;
         }
 
-        if (file_put_contents($path, $content) === false)
+        if (!file_exists($path))
         {
-            $output->writeln("<comment>{$path} could not be created</comment>");
-            return Command::FAILURE;
+            if (file_put_contents($path, $content) === false)
+            {
+                $output->writeln("<comment>{$path} could not be created</comment>");
+                return Command::FAILURE;
+            }
+        }else if (file_exists($path) && $overwrite){
+            if (file_put_contents($path, $content) === false)
+            {
+                $output->writeln("<comment>{$path} could not be created</comment>");
+                return Command::FAILURE;
+            }
         }
         $output->writeln("<info>{$path} successfully created</info>");
         return Command::SUCCESS;
