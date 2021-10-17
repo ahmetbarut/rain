@@ -100,3 +100,18 @@ function app_path(string $path = ''): string
     $path = $path != '' ? '/' . $path : '';
     return dirname(__DIR__, 2) . '/src' . $path;
 }
+
+function var_path(string $path = ''): string
+{
+    $path = $path != '' ? '/' . $path : '';
+    return dirname(__DIR__, 2) . '/var' . $path;
+}
+
+/**
+ * @throws NotRouteFound
+ */
+function view_path(string $path = ''): string
+{
+    $path = $path != '' ? '/' . $path : '';
+    return config('view.path') . $path;
+}

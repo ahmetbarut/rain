@@ -66,10 +66,10 @@ class Container implements ContainerInterface
      * Adds new class instance to container.
      *
      * @param string $abstract
-     * @param string|null $concrete
+     * @param null $concrete
      * @return static
      */
-    public function set(string $abstract, string $concrete = null): static
+    public function set(string $abstract, $concrete = null): static
     {
         if(null === $concrete){
             $concrete = $abstract;
@@ -85,7 +85,7 @@ class Container implements ContainerInterface
      * @return self
      * @throws NotRouteFound
      */
-    public static function instance(string $key): Container
+    public static function instance(string $key)
     {
         return (new self)->get($key);
     }
